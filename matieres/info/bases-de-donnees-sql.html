@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bases de données &amp; SQL — Bac Informatique</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem("bac-theme"))||"light"}catch(e){}</script>
+</head>
+<body data-root="../../" data-section="info" data-subject="info-sql" style="--accent:#0d9488">
+
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="../../index.html#info">
+        <span class="brand-badge">🎓</span>
+        <span>Bac Pour Tous<span class="brand-sub">Bac Informatique</span></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-pill" href="../../index.html#info">Accueil</a>
+        <div class="dropdown">
+          <button class="nav-btn nav-pill" type="button" data-dropdown-toggle>📚 Matières ▾</button>
+          <div class="dropdown-menu" data-subjects-menu></div>
+        </div>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Theme">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <div class="progress-bar"></div>
+
+  <section class="subject-hero">
+    <div class="container">
+      <nav class="crumbs"><a href="../../index.html">Accueil</a> › <a href="../../index.html#info">Bac Informatique</a> › <span>Bases de données &amp; SQL</span></nav>
+      <span class="chip">💻 Bac Informatique</span>
+      <h1><span>🗄️</span> Bases de données &amp; SQL</h1>
+      <p class="subtitle">Modèle relationnel, contraintes d&amp;#x27;intégrité, LDD, LMD, requêtes SELECT, jointures, agrégations et sous-requêtes.</p>
+      <div class="meta-row">
+        <span class="chip neutral" data-chapcount></span>
+        <span class="chip neutral" data-readtime></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container layout">
+    <aside class="toc" aria-label="Sommaire"></aside>
+    <main class="content">
+<!-- 1. Modèle relationnel -->
+      <section class="chapter" id="modele">
+        <h2>Le modèle relationnel</h2>
+        <p class="intro">Une base de données relationnelle stocke des données structurées dans des <strong>tables (relations)</strong> reliées entre elles, gérées par un SGBDR (comme MySQL).</p>
+
+        <dl class="defs">
+          <dt>Table (Relation)</dt><dd>Ensemble d'occurrences d'une même entité, organisée en colonnes (attributs/champs) et en lignes (enregistrements/tuples).</dd>
+          <dt>Clé primaire (<code>PRIMARY KEY</code>)</dt><dd>Attribut (ou combinaison d'attributs) qui identifie de manière unique chaque ligne. Jamais nulle ni dupliquée.</dd>
+          <dt>Clé étrangère (<code>FOREIGN KEY</code>)</dt><dd>Attribut d'une table qui fait référence à la clé primaire d'une autre table (table mère) pour assurer l'intégrité référentielle.</dd>
+        </dl>
+
+        <h3>Règles de passage vers le modèle relationnel</h3>
+        <div class="compare">
+          <div>
+            <h4>1 → N (père / fils)</h4>
+            <p>La clé primaire de la table côté <strong>1</strong> migre comme clé étrangère dans la table côté <strong>N</strong>.</p>
+          </div>
+          <div>
+            <h4>N → M (plusieurs à plusieurs)</h4>
+            <p>Création d'une <strong>table associative</strong> contenant les clés primaires des deux tables (clé primaire composée) + les attributs propres à l'association.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Contraintes -->
+      <section class="chapter" id="contraintes">
+        <h2>Contraintes d'intégrité essentielles</h2>
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>Contrainte SQL</th><th>Rôle et signification</th></tr></thead>
+            <tbody>
+              <tr><td><code>PRIMARY KEY</code></td><td>Identifie de façon unique chaque ligne (implique <code>NOT NULL</code> et <code>UNIQUE</code>).</td></tr>
+              <tr><td><code>FOREIGN KEY ... REFERENCES</code></td><td>Assure qu'une valeur existe bien dans la table mère (intégrité référentielle).</td></tr>
+              <tr><td><code>NOT NULL</code></td><td>Interdit les valeurs vides (<code>NULL</code>) dans la colonne (saisie obligatoire).</td></tr>
+              <tr><td><code>UNIQUE</code></td><td>Garantit que toutes les valeurs de la colonne sont distinctes (ex. : email, CIN).</td></tr>
+              <tr><td><code>CHECK (condition)</code></td><td>Impose une contrainte de domaine sur les valeurs (ex. : <code>CHECK (prix &gt; 0)</code>).</td></tr>
+              <tr><td><code>DEFAULT valeur</code></td><td>Attribue une valeur par défaut lorsqu'aucune valeur n'est précisée à l'insertion.</td></tr>
+              <tr><td><code>AUTO_INCREMENT</code></td><td>Incrémente automatiquement une clé primaire entière à chaque nouvelle insertion.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. LDD -->
+      <section class="chapter" id="ldd">
+        <h2>Langage de Définition de Données (LDD / DDL)</h2>
+        <p class="intro">Le LDD permet de créer, modifier et supprimer la structure de la base et des tables.</p>
+        <pre data-title="structure.sql"><code class="language-sql">CREATE DATABASE bd_commerce;
+USE bd_commerce;
+
+CREATE TABLE Client (
+    idCli INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    email VARCHAR(80) UNIQUE,
+    ville VARCHAR(30) DEFAULT 'Tunis',
+    age INT CHECK (age &gt;= 18)
+);
+
+CREATE TABLE Commande (
+    numCmd INT PRIMARY KEY,
+    dateCmd DATE NOT NULL,
+    montant DECIMAL(8,2) CHECK (montant &gt; 0),
+    idCli INT NOT NULL,
+    FOREIGN KEY (idCli) REFERENCES Client(idCli)
+        ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- Modifications de structure (ALTER TABLE) et suppression (DROP)
+ALTER TABLE Client ADD tel VARCHAR(8);
+ALTER TABLE Client MODIFY nom VARCHAR(60) NOT NULL;
+ALTER TABLE Client DROP COLUMN tel;
+DROP TABLE Commande;</code></pre>
+      </section>
+
+      <!-- 4. LMD -->
+      <section class="chapter" id="lmd">
+        <h2>Langage de Manipulation de Données (LMD / DML)</h2>
+        <p class="intro">Le LMD permet d'ajouter, de modifier ou de supprimer des enregistrements dans les tables.</p>
+        <pre data-title="manipulation.sql"><code class="language-sql">-- Insérer un enregistrement
+INSERT INTO Client (nom, email, age)
+VALUES ('Sami', 'sami@mail.tn', 22);
+
+-- Mettre à jour des lignes (ne jamais oublier WHERE !)
+UPDATE Client
+SET ville = 'Sousse', age = age + 1
+WHERE idCli = 1;
+
+-- Supprimer des lignes
+DELETE FROM Commande
+WHERE dateCmd &lt; '2025-01-01';</code></pre>
+      </section>
+
+      <!-- 5. SELECT & WHERE -->
+      <section class="chapter" id="select">
+        <h2>Interrogation des données (LID : SELECT)</h2>
+        <p>L'ordre logique d'écriture d'une requête <code>SELECT</code> complète est toujours :</p>
+        <pre data-title="syntaxe_select.sql"><code class="language-sql">SELECT [DISTINCT] colonnes_ou_fonctions
+FROM table1, table2
+WHERE condition_sur_les_lignes_et_jointures
+GROUP BY colonne_de_regroupement
+HAVING condition_sur_les_groupes
+ORDER BY colonne [ASC | DESC];</code></pre>
+
+        <h3>Opérateurs de filtrage (<code>WHERE</code>)</h3>
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>Opérateur / Clause</th><th>Utilisation et exemple</th></tr></thead>
+            <tbody>
+              <tr><td>Comparaison &amp; Logique</td><td><code>=</code>, <code>&lt;&gt;</code> (ou <code>!=</code>), <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>AND</code>, <code>OR</code>, <code>NOT</code>.</td></tr>
+              <tr><td><code>BETWEEN a AND b</code></td><td>Valeurs comprises entre <code>a</code> et <code>b</code> inclus. Ex. : <code>age BETWEEN 18 AND 25</code>.</td></tr>
+              <tr><td><code>IN (v1, v2, ...)</code></td><td>Appartenance à une liste. Ex. : <code>ville IN ('Tunis', 'Sfax', 'Nabeul')</code>.</td></tr>
+              <tr><td><code>LIKE 'motif'</code></td><td><code>%</code> remplace 0 ou plusieurs caractères ; <code>_</code> remplace exactement 1 caractère.<br>Ex. : <code>nom LIKE 'A%'</code> (commence par A), <code>nom LIKE '_a%'</code> (2<sup>e</sup> lettre est a).</td></tr>
+              <tr><td><code>IS NULL</code> / <code>IS NOT NULL</code></td><td>Teste si une colonne est vide ou renseignée (ne jamais écrire <code>= NULL</code>).</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 6. Jointures & Agrégations -->
+      <section class="chapter" id="jointures">
+        <h2>Jointures, agrégations et sous-requêtes</h2>
+        <ul>
+          <li><strong>Fonctions d'agrégation</strong> : <code>COUNT(*)</code> (nombre de lignes), <code>COUNT(DISTINCT col)</code>, <code>SUM(col)</code>, <code>AVG(col)</code>, <code>MIN(col)</code>, <code>MAX(col)</code>.</li>
+          <li><strong>Dates et chaînes</strong> : <code>YEAR(d)</code>, <code>MONTH(d)</code>, <code>DAY(d)</code>, <code>CURDATE()</code>, <code>UPPER(ch)</code>, <code>LENGTH(ch)</code>.</li>
+        </ul>
+
+        <pre data-title="requetes_avancees.sql"><code class="language-sql">-- 1. Jointure entre deux tables (clients et leurs commandes)
+SELECT c.nom, cmd.numCmd, cmd.montant
+FROM Client c, Commande cmd
+WHERE c.idCli = cmd.idCli
+ORDER BY cmd.montant DESC;
+
+-- 2. Regroupement et filtrage de groupes (clients ayant au moins 2 commandes)
+SELECT idCli, COUNT(*) AS nbCmd, SUM(montant) AS total
+FROM Commande
+WHERE YEAR(dateCmd) = 2026
+GROUP BY idCli
+HAVING COUNT(*) &gt;= 2;
+
+-- 3. Sous-requête (commandes supérieures à la moyenne générale)
+SELECT numCmd, montant
+FROM Commande
+WHERE montant &gt; (SELECT AVG(montant) FROM Commande);</code></pre>
+      </section>
+
+      <!-- 7. Astuces -->
+      <section class="chapter" id="astuces">
+        <h2>Astuces Bac (SQL)</h2>
+        <div class="callout bac">
+          <strong>3 règles d'or pour ne perdre aucun point</strong>
+          <ol>
+            <li><strong><code>WHERE</code> vs <code>HAVING</code></strong> : utilise toujours <code>WHERE</code> pour filtrer les lignes <em>avant</em> regroupement, et <code>HAVING</code> pour filtrer sur une fonction d'agrégation (<code>COUNT</code>, <code>SUM</code>, <code>AVG</code>) <em>après</em> <code>GROUP BY</code>.</li>
+            <li>Dans une jointure sur <code>k</code> tables, il faut au minimum <code>k - 1</code> conditions de jointure (clé primaire = clé étrangère) pour éviter le produit cartésien.</li>
+            <li>En SQL, entoure toujours les chaînes de caractères et les dates (format <code>'AAAA-MM-JJ'</code>) par des guillemets simples.</li>
+          </ol>
+        </div>
+      </section>
+      <nav class="pager" aria-label="Navigation"></nav>
+    </main>
+  </div>
+
+  <button class="toc-fab" type="button" aria-label="Sommaire">☰</button>
+  <button class="icon-btn to-top" type="button" aria-label="Haut">↑</button>
+
+  <footer class="footer">
+    <div class="container">
+      <a href="../../index.html#info">← Retour à ma section</a>
+      <div class="footer-meta"><a class="footer-contact" href="mailto:yassinemami41@gmail.com">📧 yassinemami41@gmail.com</a><span class="copyright">© Joyboy</span></div>
+    </div>
+  </footer>
+
+  <script src="../../assets/vendor/prism/prism.min.js"></script>
+  <script src="../../assets/js/catalog.js"></script>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

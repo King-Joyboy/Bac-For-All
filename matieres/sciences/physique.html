@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Physique — Bac Sciences Expérimentales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem("bac-theme"))||"light"}catch(e){}</script>
+</head>
+<body data-root="../../" data-section="sciences" data-subject="sciences-physique" style="--accent:#059669">
+
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="../../index.html#sciences">
+        <span class="brand-badge">🎓</span>
+        <span>Bac Pour Tous<span class="brand-sub">Bac Sciences Expérimentales</span></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-pill" href="../../index.html#sciences">Accueil</a>
+        <div class="dropdown">
+          <button class="nav-btn nav-pill" type="button" data-dropdown-toggle>📚 Matières ▾</button>
+          <div class="dropdown-menu" data-subjects-menu></div>
+        </div>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Theme">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <div class="progress-bar"></div>
+
+  <section class="subject-hero">
+    <div class="container">
+      <nav class="crumbs"><a href="../../index.html">Accueil</a> › <a href="../../index.html#sciences">Bac Sciences Expérimentales</a> › <span>Physique</span></nav>
+      <span class="chip">🧬 Bac Sciences Expérimentales</span>
+      <h1><span>⚡</span> Physique</h1>
+      <p class="subtitle">4ème Sciences Expérimentales (Tunisie) • RC, RL, RLC, Mécanique, Ondes, Optique &amp; Nucléaire</p>
+      <div class="meta-row">
+        <span class="chip neutral" data-chapcount></span>
+        <span class="chip neutral" data-readtime></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container layout">
+    <aside class="toc" aria-label="Sommaire"></aside>
+    <main class="content">
+      <section class="chapter" id="dipoles-rc-rl">
+        <h2>Dipôles RC &amp; RL</h2>
+        <div class="table-wrap"><table class="tbl"><thead><tr><th>Dipôle</th><th>Relation &amp; Énergie</th><th>τ</th><th>Charge / Établissement</th><th>Décharge / Rupture</th></tr></thead><tbody>
+              <tr><td>RC</td><td>i = C duC/dt ; Ee = ½CuC²</td><td>RC</td><td>uC = E(1 − e−t/τ)</td><td>uC = E e−t/τ</td></tr>
+              <tr><td>RL</td><td>uB = ri + L di/dt ; Em = ½Li²</td><td>L/(R+r)</td><td>i = I0(1 − e−t/τ)</td><td>i = I0 e−t/τ</td></tr>
+            </tbody></table></div>
+      </section>
+
+      <section class="chapter" id="oscillations-electriques-rlc-fil">
+        <h2>Oscillations Électriques (RLC) &amp; Filtres</h2>
+        <ul>
+          <li><strong>RLC libre :</strong> Non amorti (LC) : <code>T0 = 2π√(LC)</code> , <code>E = cte</code> . Amorti : pseudo-périodique ou apériodique, <code>dE/</code> <code>dt = −Rti² ≤ 0</code> .</li>
+          <li><strong>RLC forcé :</strong> <code>Z = √[Rt² + (Lω − 1/Cω)²]</code> ; <code>cos(Δϕ) = Rt/Z</code> ; <code>tan(Δϕ) = (Lω − 1/Cω)/Rt</code> ; <code>P = U I</code> <code>cos(Δϕ) = Rt I²</code> .</li>
+          <li><strong>Résonance d&#x27;intensité (N = N0) :</strong> <code>Zmin = Rt</code> , <code>Imax = U/Rt</code> , <code>Δϕ = 0</code> . Facteur de qualité <code>Q = Lω0/Rt =</code> <code>UC/U</code> .</li>
+          <li><strong>Filtres :</strong> <code>T = Us/Ue</code> ; <code>G = 20 log(T)</code> ; Bande passante : <code>T ≥ T0/√2</code> ( <code>G ≥ Gmax − 3 dB</code> ). Passe-bas RC : <code>Nc = 1/(2πRC)</code> . Passe-bande RLC : <code>ΔN = Rt/(2πL) = N0/Q</code> .</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="oscillations-mecaniques-pendule-">
+        <h2>Oscillations Mécaniques (Pendule Élastique)</h2>
+        <ul>
+          <li><strong>Libre non amorti :</strong> <code>m x&#x27;&#x27; + k x = 0</code> ⇒ <code>ω0 = √(k/m)</code> , <code>T0 = 2π√(m/k)</code> , <code>Em = ½mv² + ½kx² = cte</code> .</li>
+          <li><strong>Amorti / Forcé :</strong> <code>m x&#x27;&#x27; + h x&#x27; + k x = Fm sin(ωt)</code> . Analogie : <code>m ↔ L</code> , <code>h ↔ R</code> , <code>k ↔ 1/C</code> , <code>x ↔ q</code> , <code>v ↔ i</code> , <code>F ↔ u</code> .</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="ondes-mecaniques-ondes-lumineuse">
+        <h2>Ondes Mécaniques &amp; Ondes Lumineuses</h2>
+        <ul>
+          <li><strong>Onde progressive :</strong> <code>v = λ N = λ/T</code> . Équation horaire de M(x) pour <code>t ≥ x/v</code> : <code>yM(t) = a sin(2πt/T −</code> <code>2πx/λ + ϕS)</code> . En phase : <code>x = kλ</code> ; opposition : <code>x = (2k+1)λ/2</code> .</li>
+          <li><strong>Diffraction de la lumière (fente de largeur a) :</strong> Demi-angle de diffraction <code>θ = λ / a</code> (rad). Largeur de la tache centrale sur un écran à distance D : <code>L = 2 λ D / a</code> .</li>
+          <li><strong>Réfraction &amp; Dispersion :</strong> Indice <code>n = c / v = λ0 / λ</code> . La fréquence <code>ν</code> ne change pas lors du changement de milieu.</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="physique-atomique-nucleaire">
+        <h2>Physique Atomique &amp; Nucléaire</h2>
+        <ul>
+          <li><strong>Atome d&#x27;hydrogène :</strong> <code>En = −13,6 / n²</code> (eV). Photon émis/absorbé : <code>ΔE = |Ep − En| = hν = hc/λ</code> .</li>
+          <li><strong>Radioactivité :</strong> Conservation de A et Z (Soddy). <code>α (4</code></li>
+          <li><code>2He)</code> , <code>β− (0 −1e)</code> , <code>β+ (0</code></li>
+          <li><code>+1e)</code> , <code>γ</code> . Décroissance : <code>N(t) = N0 e−λt</code> , <code>A(t) = λN(t)</code> , <code>T = ln(2)/λ</code> .</li>
+          <li><strong>Énergie nucléaire :</strong> Énergie de liaison <code>El = Δm c²</code> . Énergie libérée lors d&#x27;une réaction (fission/ fusion) : <code>|ΔE| = |mproduits − mréactifs| c² = |El(réactifs) − El(produits)|</code> .</li>
+        </ul>
+      </section>
+      <nav class="pager" aria-label="Navigation"></nav>
+    </main>
+  </div>
+
+  <button class="toc-fab" type="button" aria-label="Sommaire">☰</button>
+  <button class="icon-btn to-top" type="button" aria-label="Haut">↑</button>
+
+  <footer class="footer">
+    <div class="container">
+      <a href="../../index.html#sciences">← Retour à ma section</a>
+      <div class="footer-meta"><a class="footer-contact" href="mailto:yassinemami41@gmail.com">📧 yassinemami41@gmail.com</a><span class="copyright">© Joyboy</span></div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/catalog.js"></script>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

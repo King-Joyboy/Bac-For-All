@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Physique — Bac Sciences Techniques</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem("bac-theme"))||"light"}catch(e){}</script>
+</head>
+<body data-root="../../" data-section="technique" data-subject="technique-physique" style="--accent:#ea580c">
+
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="../../index.html#technique">
+        <span class="brand-badge">🎓</span>
+        <span>Bac Pour Tous<span class="brand-sub">Bac Sciences Techniques</span></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-pill" href="../../index.html#technique">Accueil</a>
+        <div class="dropdown">
+          <button class="nav-btn nav-pill" type="button" data-dropdown-toggle>📚 Matières ▾</button>
+          <div class="dropdown-menu" data-subjects-menu></div>
+        </div>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Theme">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <div class="progress-bar"></div>
+
+  <section class="subject-hero">
+    <div class="container">
+      <nav class="crumbs"><a href="../../index.html">Accueil</a> › <a href="../../index.html#technique">Bac Sciences Techniques</a> › <span>Physique</span></nav>
+      <span class="chip">⚙️ Bac Sciences Techniques</span>
+      <h1><span>⚡</span> Physique</h1>
+      <p class="subtitle">4ème Sciences Techniques (Tunisie) • RC, RL, RLC, Filtres, Mécanique, Ondes &amp; Nucléaire</p>
+      <div class="meta-row">
+        <span class="chip neutral" data-chapcount></span>
+        <span class="chip neutral" data-readtime></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container layout">
+    <aside class="toc" aria-label="Sommaire"></aside>
+    <main class="content">
+      <section class="chapter" id="dipoles-rc-rl">
+        <h2>Dipôles RC &amp; RL</h2>
+        <div class="table-wrap"><table class="tbl"><thead><tr><th>Dipôle</th><th>Relation &amp; Énergie</th><th>Constante τ</th><th>Établissement / Charge</th><th>Rupture / Décharge</th></tr></thead><tbody>
+              <tr><td>RC</td><td>i = C duC/dt Ee = ½ C uC²</td><td>τ = R · C</td><td>uC(t) = E(1 − e−t/τ) i(t) = (E/R) e−t/τ</td><td>uC(t) = E · e−t/τ i(t) = −(E/R) e−t/τ</td></tr>
+              <tr><td>RL</td><td>uB = r·i + L di/dt Em = ½ L i²</td><td>τ = L / (R + r)</td><td>i(t) = I0(1 − e−t/τ) avec I0 = E/(R+r)</td><td>i(t) = I0 · e−t/τ</td></tr>
+            </tbody></table></div>
+      </section>
+
+      <section class="chapter" id="oscillations-electriques-libres-">
+        <h2>Oscillations Électriques Libres &amp; Forcées (RLC)</h2>
+        <ul>
+          <li><strong>Circuit LC idéal (non amorti) :</strong> <code>d²uC/dt² + ω0² uC = 0</code> avec <code>ω0 = 1/√(LC)</code> , période propre <code>T0 =</code> <code>2π√(LC)</code> , énergie totale <code>E = Ee + Em = cte</code> .</li>
+          <li><strong>Circuit RLC amorti :</strong> Régime pseudo-périodique ( <code>Rt</code> faible, <code>T ≈ T0</code> ) ou apériodique ( <code>Rt</code> grande). Dissipation : <code>dE/dt = −Rt i² ≤ 0</code> .</li>
+          <li><strong>RLC en régime sinusoïdal forcé :</strong></li>
+        </ul>
+        <div class="formula-box"><strong>Impédance :</strong> Z = U/I = √[Rt² + (Lω − 1/(Cω))²] | <strong>Déphasage (Δϕ = ϕu − ϕi) :</strong> cos(Δϕ) = Rt/Z ;<br>tan(Δϕ) = (Lω − 1/Cω)/Rt <strong>Résonance d&#x27;intensité (N = N0) :</strong> Lω0 = 1/(Cω0) ⇒ Zmin = Rt, Imax = U/Rt, Δϕ = 0.<br><strong>Facteur de qualité :</strong> Q = Lω0/Rt = UC/U (surtension si Q &gt; 1). | <strong>Puissance moyenne :</strong> P = U I<br>cos(Δϕ) = Rt I².</div>
+      </section>
+
+      <section class="chapter" id="filtres-electriques">
+        <h2>Filtres Électriques</h2>
+        <ul>
+          <li><strong>Transmittance :</strong> <code>T = Us / Ue</code> ; <strong>Gain (dB) :</strong> <code>G = 20 log(T)</code> .</li>
+          <li><strong>Bande passante à −3 dB :</strong> <code>T ≥ T0 / √2</code> (soit <code>G ≥ Gmax − 3 dB</code> ).</li>
+          <li><strong>Passe-bas (RC sur C) :</strong> <code>Nc = 1/(2πRC)</code> , passe <code>N ≤ Nc</code> . <strong>Passe-haut (RC sur R) :</strong> passe <code>N ≥ Nc</code> .</li>
+          <li><strong>Passe-bande (RLC sur R) :</strong> <code>T0 = R/(R+r)</code> ; largeur de bande <code>ΔN = N2 − N1 = Rt/(2πL) = N0/Q</code> .</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="oscillations-mecaniques-pendule-">
+        <h2>Oscillations Mécaniques (Pendule Élastique)</h2>
+        <ul>
+          <li><strong>Équation différentielle (non amorti) :</strong> <code>m · d²x/dt² + k · x = 0</code> ⇒ <code>ω0 = √(k/m)</code> , <code>T0 = 2π√(m/k)</code> .</li>
+          <li><strong>Énergie mécanique :</strong> <code>Em = Ec + Epe = ½ m v² + ½ k x²</code> (constante sans frottements).</li>
+          <li><strong>Amorti (frottement visqueux f = −h v) :</strong> <code>m x&#x27;&#x27; + h x&#x27; + k x = 0</code> ; <code>dEm/dt = −h v² ≤ 0</code> .</li>
+          <li><strong>Forcé (excitateur sinusoïdal Fm sin(ωt)) :</strong> Analogie électromécanique : <code>m ↔ L</code> , <code>h ↔ R</code> , <code>k ↔ 1/C</code> , <code>x ↔ q</code> , <code>v ↔ i</code> , <code>F ↔ u</code> .</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="ondes-mecaniques-progressives">
+        <h2>Ondes Mécaniques Progressives</h2>
+        <ul>
+          <li><strong>Célérité :</strong> <code>v = d/Δt = λ · N = λ / T</code> (corde tendue : <code>v = √(F/μ)</code> ).</li>
+          <li><strong>Équation horaire d&#x27;un point M à distance x de S :</strong> Pour <code>t ≥ θ = x/v</code> , <code>yM(t) = a sin(2πt/T −</code> <code>2πx/λ + ϕS)</code> (et 0 pour <code>t &lt; θ</code> ).</li>
+          <li><strong>Points en phase :</strong> <code>x = kλ</code> . <strong>En opposition de phase :</strong> <code>x = (2k+1)λ/2</code> .</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="physique-atomique-nucleaire">
+        <h2>Physique Atomique &amp; Nucléaire</h2>
+        <ul>
+          <li><strong>Atome d&#x27;hydrogène :</strong> <code>En = −13,6 / n²</code> (en eV, 1 eV = 1,6×10−19 J). Transition : <code>ΔE = |Ep − En| =</code> <code>h · ν = h · c / λ</code> .</li>
+          <li><strong>Radioactivité :</strong> Lois de Soddy (conservation de A et Z). Types : <code>α</code> (4</li>
+          <li>2He), <code>β−</code> (0 −1e), <code>β+</code> (0</li>
+          <li>+1e), <code>γ</code> (désexcitation).</li>
+          <li><strong>Décroissance radioactive :</strong> <code>N(t) = N0 e−λt</code> ; activité <code>A(t) = λ N(t)</code> (Bq) ; demi-vie <code>T = ln(2) / λ</code> .</li>
+          <li><strong>Énergie de liaison :</strong> <code>El = Δm · c² = [Z mp + (A−Z) mn − m(X)] c²</code> . Plus <code>El/A</code> est grand, plus le noyau est stable.</li>
+        </ul>
+      </section>
+      <nav class="pager" aria-label="Navigation"></nav>
+    </main>
+  </div>
+
+  <button class="toc-fab" type="button" aria-label="Sommaire">☰</button>
+  <button class="icon-btn to-top" type="button" aria-label="Haut">↑</button>
+
+  <footer class="footer">
+    <div class="container">
+      <a href="../../index.html#technique">← Retour à ma section</a>
+      <div class="footer-meta"><a class="footer-contact" href="mailto:yassinemami41@gmail.com">📧 yassinemami41@gmail.com</a><span class="copyright">© Joyboy</span></div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/catalog.js"></script>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mathématiques : Complexes, Espace &amp; Proba — Bac Sciences Expérimentales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem("bac-theme"))||"light"}catch(e){}</script>
+</head>
+<body data-root="../../" data-section="sciences" data-subject="sciences-math-algebre-espace-proba-stat" style="--accent:#059669">
+
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="../../index.html#sciences">
+        <span class="brand-badge">🎓</span>
+        <span>Bac Pour Tous<span class="brand-sub">Bac Sciences Expérimentales</span></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-pill" href="../../index.html#sciences">Accueil</a>
+        <div class="dropdown">
+          <button class="nav-btn nav-pill" type="button" data-dropdown-toggle>📚 Matières ▾</button>
+          <div class="dropdown-menu" data-subjects-menu></div>
+        </div>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Theme">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <div class="progress-bar"></div>
+
+  <section class="subject-hero">
+    <div class="container">
+      <nav class="crumbs"><a href="../../index.html">Accueil</a> › <a href="../../index.html#sciences">Bac Sciences Expérimentales</a> › <span>Mathématiques : Complexes, Espace &amp; Proba</span></nav>
+      <span class="chip">🧬 Bac Sciences Expérimentales</span>
+      <h1><span>🎲</span> Mathématiques : Complexes, Espace &amp; Proba</h1>
+      <p class="subtitle">4ème Sciences Expérimentales (Tunisie) • Complexes, Espace, Probabilités &amp; Statistiques</p>
+      <div class="meta-row">
+        <span class="chip neutral" data-chapcount></span>
+        <span class="chip neutral" data-readtime></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container layout">
+    <aside class="toc" aria-label="Sommaire"></aside>
+    <main class="content">
+      <section class="chapter" id="nombres-complexes">
+        <h2>Nombres Complexes</h2>
+        <ul>
+          <li><strong>Module &amp; Argument :</strong> Pour <code>z = a + ib</code> , <code>|z| = √(a² + b²)</code> , <code>z = r(cos θ + i sin θ) = r eiθ</code> .</li>
+          <li><strong>Moivre &amp; Euler :</strong> <code>(eiθ)n = einθ</code> ; <code>cos θ = (eiθ + e−iθ)/2</code> ; <code>sin θ = (eiθ − e−iθ)/(2i)</code> .</li>
+          <li><strong>Équation az² + bz + c = 0 :</strong> <code>Δ = b² − 4ac = δ²</code> ⇒ <code>z1,2 = (−b ± δ)/(2a)</code> .</li>
+          <li><strong>Racines n-ièmes de Z = r eiα :</strong> <code>zk = r1/n ei(α + 2kπ)/n</code> ( <code>k = 0, ..., n−1</code> ).</li>
+          <li><strong>Géométrie complexe :</strong> <code>AB = |zB − zA|</code> ; <code>(AB, AC) ≡ arg((zC−zA)/(zB−zA)) [2π]</code> . Alignement ⇔ rapport ∈ ℝ ; Orthogonalité ⇔ rapport ∈ iℝ*.</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="geometrie-dans-l-espace">
+        <h2>Géométrie dans l&#x27;Espace</h2>
+        <ul>
+          <li><strong>Produit scalaire :</strong> <code>u · v = xx&#x27; + yy&#x27; + zz&#x27;</code> ( <code>0</code> si orthogonaux).</li>
+          <li><strong>Produit vectoriel :</strong> <code>u ∧ v = (yz&#x27;−zy&#x27;, zx&#x27;−xz&#x27;, xy&#x27;−yx&#x27;)</code> . Aire(ABC) = <code>½ ||AB ∧ AC||</code> .</li>
+          <li><strong>Produit mixte :</strong> <code>(u ∧ v) · w = det(u, v, w)</code> . Volume tétraèdre ABCD = <code>(1/6) |(AB ∧ AC) · AD|</code> .</li>
+          <li><strong>Plan P (ax + by + cz + d = 0) :</strong> Vecteur normal <code>n(a, b, c)</code> . Distance d&#x27;un point M0 à P :</li>
+        </ul>
+        <div class="formula-box">d(M0, P) = |ax0 + by0 + cz0 + d| / √(a² + b² + c²)</div>
+        <ul>
+          <li><strong>Sphère S(I, R) :</strong> <code>(x−xI)² + (y−yI)² + (z−zI)² = R²</code> . Section par un plan P (si <code>d &lt; R</code> ) : cercle de rayon <code>r = √(R² − d²)</code> .</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="probabilites-statistiques">
+        <h2>Probabilités &amp; Statistiques</h2>
+        <ul>
+          <li><strong>Conditionnelle &amp; Probabilités totales :</strong> <code>p(B | A) = p(A ∩ B) / p(A)</code> ; <code>p(B) = p(A)p(B|A) + p(!</code> <code>A)p(B|!A)</code> .</li>
+          <li><strong>Variable aléatoire discrète :</strong> <code>E(X) = Σ xi pi</code> ; <code>V(X) = Σ xi² pi − [E(X)]²</code> ; <code>σ(X) = √V(X)</code> .</li>
+          <li><code>k pk (1−p)n−k</code> ; <code>E(X) = np</code> ; <code>V(X) = np(1−p)</code> .</li>
+          <li><strong>Loi Binomiale B(n, p) :</strong> <code>p(X = k) = Cn</code></li>
+          <li><strong>Lois continues :</strong> Uniforme sur [a, b] ( <code>E = (a+b)/2</code> ) ; Exponentielle (λ) : <code>p(X ≤ t) = 1 − e−λt</code> , <code>p(X &gt; t) = e−λt</code> , <code>E = 1/λ</code> .</li>
+          <li><strong>Statistiques à 2 variables :</strong> <code>Cov(X, Y) = (1/N)Σ xi yi − x̄ ȳ</code> ; <code>r = Cov(X, Y)/(σX σY)</code> ; Droite de régression : <code>y = ax + b</code> avec <code>a = Cov(X, Y)/V(X)</code> et <code>b = ȳ − a x̄</code> .</li>
+        </ul>
+      </section>
+      <nav class="pager" aria-label="Navigation"></nav>
+    </main>
+  </div>
+
+  <button class="toc-fab" type="button" aria-label="Sommaire">☰</button>
+  <button class="icon-btn to-top" type="button" aria-label="Haut">↑</button>
+
+  <footer class="footer">
+    <div class="container">
+      <a href="../../index.html#sciences">← Retour à ma section</a>
+      <div class="footer-meta"><a class="footer-contact" href="mailto:yassinemami41@gmail.com">📧 yassinemami41@gmail.com</a><span class="copyright">© Joyboy</span></div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/catalog.js"></script>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

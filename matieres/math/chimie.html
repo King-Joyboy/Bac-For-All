@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chimie — Bac Mathématiques</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem("bac-theme"))||"light"}catch(e){}</script>
+</head>
+<body data-root="../../" data-section="math" data-subject="math-chimie" style="--accent:#7c3aed">
+
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="../../index.html#math">
+        <span class="brand-badge">🎓</span>
+        <span>Bac Pour Tous<span class="brand-sub">Bac Mathématiques</span></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-pill" href="../../index.html#math">Accueil</a>
+        <div class="dropdown">
+          <button class="nav-btn nav-pill" type="button" data-dropdown-toggle>📚 Matières ▾</button>
+          <div class="dropdown-menu" data-subjects-menu></div>
+        </div>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Theme">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <div class="progress-bar"></div>
+
+  <section class="subject-hero">
+    <div class="container">
+      <nav class="crumbs"><a href="../../index.html">Accueil</a> › <a href="../../index.html#math">Bac Mathématiques</a> › <span>Chimie</span></nav>
+      <span class="chip">📐 Bac Mathématiques</span>
+      <h1><span>⚗️</span> Chimie</h1>
+      <p class="subtitle">4ème Mathématiques (Tunisie) • Cinétique, Équilibre, pH, Dosage, Piles &amp; Chimie Organique</p>
+      <div class="meta-row">
+        <span class="chip neutral" data-chapcount></span>
+        <span class="chip neutral" data-readtime></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container layout">
+    <aside class="toc" aria-label="Sommaire"></aside>
+    <main class="content">
+      <section class="chapter" id="cinetique-equilibre-chimique">
+        <h2>Cinétique &amp; Équilibre Chimique</h2>
+        <ul>
+          <li><strong>Vitesse :</strong> <code>v(t) = dx/dt</code> ; <code>vvol = (1/V) dx/dt</code> ; temps de demi-réaction <code>x(t1/2) = xf/2</code> .</li>
+          <li><strong>Taux d&#x27;avancement :</strong> <code>τf = xf / xmax</code> . Loi d&#x27;action de masse : <code>Π = [C]c[D]d / ([A]a[B]b)</code> . À l&#x27;équilibre : <code>Πéq = K(T)</code> .</li>
+          <li><strong>Sens d&#x27;évolution :</strong> <code>Π &lt; K</code> → sens direct ; <code>Π &gt; K</code> → sens inverse. Le Chatelier : hausse de T favorise le sens endothermique.</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="acides-bases-ph-dosage">
+        <h2>Acides, Bases, pH &amp; Dosage</h2>
+        <ul>
+          <li><code>Ke = 10−14</code> (25°C) ; <code>pH = −log[H3O+]</code> ; <code>pH = pKa + log([Base]/[Acide])</code> .</li>
+          <li><strong>Formules de pH :</strong> Acide fort : <code>−log C</code> | Base forte : <code>14 + log C</code> | Acide faible : <code>½(pKa − log C)</code> | Base faible : <code>7 + ½(pKa + log C)</code> .</li>
+          <li><strong>Dosage :</strong> À l&#x27;équivalence <code>CaVa = CbVbE</code> . Demi-équivalence (faible) : <code>pH = pKa</code> .</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="piles-electrochimiques-chimie-or">
+        <h2>Piles Électrochimiques &amp; Chimie Organique</h2>
+        <ul>
+          <li><strong>Piles :</strong> Anode (−, oxydation), Cathode (+, réduction). <code>E° = E°(+) − E°(−)</code> . <strong>Nernst :</strong> <code>E = E° − (0,06/n) log(Π)</code> . À l&#x27;équilibre : <code>K = 10nE°/0,06</code> .</li>
+          <li><strong>Alcools (R–OH) :</strong> Oxydation ménagée : I → Aldéhyde → Acide carbox. ; II → Cétone ; III : non oxydable.</li>
+          <li><strong>Estérification :</strong> Acide + Alcool ↔ Ester + Eau (lente, limitée, athermique). Avec chlorure d&#x27;acyle : rapide et totale.</li>
+          <li><strong>Amines &amp; Amides :</strong> Amines (basiques, nucléophiles) ; synthèse d&#x27;amides par déshydratation de carboxylate d&#x27;ammonium ou action de R–COCl sur NH3 / amine I ou II.</li>
+        </ul>
+      </section>
+      <nav class="pager" aria-label="Navigation"></nav>
+    </main>
+  </div>
+
+  <button class="toc-fab" type="button" aria-label="Sommaire">☰</button>
+  <button class="icon-btn to-top" type="button" aria-label="Haut">↑</button>
+
+  <footer class="footer">
+    <div class="container">
+      <a href="../../index.html#math">← Retour à ma section</a>
+      <div class="footer-meta"><a class="footer-contact" href="mailto:yassinemami41@gmail.com">📧 yassinemami41@gmail.com</a><span class="copyright">© Joyboy</span></div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/catalog.js"></script>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

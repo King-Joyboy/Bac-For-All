@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mathématiques : Matrices, Graphes &amp; Proba — Bac Économie &amp; Gestion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem("bac-theme"))||"light"}catch(e){}</script>
+</head>
+<body data-root="../../" data-section="eco" data-subject="eco-math-matrices-graphes-proba-stat" style="--accent:#0284c7">
+
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="../../index.html#eco">
+        <span class="brand-badge">🎓</span>
+        <span>Bac Pour Tous<span class="brand-sub">Bac Économie &amp; Gestion</span></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-pill" href="../../index.html#eco">Accueil</a>
+        <div class="dropdown">
+          <button class="nav-btn nav-pill" type="button" data-dropdown-toggle>📚 Matières ▾</button>
+          <div class="dropdown-menu" data-subjects-menu></div>
+        </div>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Theme">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <div class="progress-bar"></div>
+
+  <section class="subject-hero">
+    <div class="container">
+      <nav class="crumbs"><a href="../../index.html">Accueil</a> › <a href="../../index.html#eco">Bac Économie &amp; Gestion</a> › <span>Mathématiques : Matrices, Graphes &amp; Proba</span></nav>
+      <span class="chip">📊 Bac Économie &amp; Gestion</span>
+      <h1><span>🔢</span> Mathématiques : Matrices, Graphes &amp; Proba</h1>
+      <p class="subtitle">4ème Économie &amp; Gestion (Tunisie) • Matrices, Graphes, Probabilités &amp; Statistiques</p>
+      <div class="meta-row">
+        <span class="chip neutral" data-chapcount></span>
+        <span class="chip neutral" data-readtime></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container layout">
+    <aside class="toc" aria-label="Sommaire"></aside>
+    <main class="content">
+      <section class="chapter" id="matrices-systemes-lineaires">
+        <h2>Matrices &amp; Systèmes Linéaires</h2>
+        <ul>
+          <li><strong>Produit matriciel A × B :</strong> Possible uniquement si nb colonnes de A = nb lignes de B. En général <code>A ×</code> <code>B ≠ B × A</code> .</li>
+          <li><strong>Inverse d&#x27;une matrice carrée A :</strong> <code>A</code> est inversible ⇔ <code>det(A) ≠ 0</code> . Alors <code>A × A−1 = In</code> .</li>
+          <li><strong>Résolution d&#x27;un système linéaire :</strong> S&#x27;écrit <code>A × X = B</code> . Si <code>A</code> est inversible, la solution unique est <code>X</code> <code>= A−1 × B</code> .</li>
+          <li><strong>Suite de matrices / Chaîne de Markov :</strong> <code>Pn+1 = Pn × M</code> ⇒ <code>Pn = P0 × Mn</code> . État stable <code>P = (x, y)</code> vérifie <code>P = P × M</code> et <code>x + y = 1</code> .</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="theorie-des-graphes">
+        <h2>Théorie des Graphes</h2>
+        <ul>
+          <li><strong>Vocabulaire :</strong> Ordre = nombre de sommets ; Degré d&#x27;un sommet = nombre d&#x27;arêtes incidentes. <strong>Somme des degrés = 2 × (nombre d&#x27;arêtes)</strong>.</li>
+          <li><strong>Matrice d&#x27;adjacence M :</strong> <code>mij = 1</code> s&#x27;il existe une arête (ou arc) de i vers j, sinon 0. Le coefficient <code>(i,</code> <code>j)</code> de <strong>Mk</strong> donne le <strong>nombre de chaînes (ou chemins) de longueur k</strong> reliant i à j.</li>
+          <li><strong>Chaîne / Cycle Eulérien (Théorème d&#x27;Euler) :</strong> Dans un graphe connexe :</li>
+          <li style="margin-inline-start:1.2rem;list-style-type:circle"><strong>Cycle eulérien</strong> (passe par chaque arête une seule fois, retour au départ) ⇔ <strong>tous les sommets sont de degré pair</strong>.</li>
+          <li style="margin-inline-start:1.2rem;list-style-type:circle"><strong>Chaîne eulérienne</strong> (sans retour) ⇔ exactement <strong>2 sommets sont de degré impair</strong>.</li>
+          <li><strong>Coloration (Nombre chromatique γ) :</strong> <code>ordre du plus grand sous-graphe complet (clique) ≤ γ ≤</code> <code>dmax + 1</code> . Algorithme de <strong>Welsh-Powell</strong> (trier les sommets par degré décroissant).</li>
+          <li><strong>Plus court chemin :</strong> Algorithme de <strong>Dijkstra</strong> (graphe pondéré à poids positifs).</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="probabilites">
+        <h2>Probabilités</h2>
+        <ul>
+          <li><strong>Conditionnement :</strong> <code>p(B | A) = p(A ∩ B) / p(A)</code> . Formule des probabilités totales (arbre pondéré) : <code>p(B) = p(A)p(B|A) + p(!A)p(B|!A)</code> .</li>
+          <li><strong>Variable aléatoire discrète :</strong> <code>E(X) = Σ xi pi</code> ; <code>V(X) = Σ xi² pi − [E(X)]²</code> ; <code>σ(X) = √V(X)</code> .</li>
+          <li><code>k pk (1−p)n−k</code> ; <code>E(X) = np</code> ; <code>V(X) = np(1−p)</code> .</li>
+          <li><strong>Loi Binomiale B(n, p) :</strong> <code>p(X = k) = Cn</code></li>
+          <li><strong>Lois continues :</strong></li>
+          <li style="margin-inline-start:1.2rem;list-style-type:circle"><strong>Uniforme sur [a, b] :</strong> <code>p(c ≤ X ≤ d) = (d−c)/(b−a)</code> ; <code>E(X) = (a+b)/2</code> .</li>
+          <li style="margin-inline-start:1.2rem;list-style-type:circle"><strong>Exponentielle (λ &gt; 0) :</strong> <code>p(X ≤ t) = 1 − e−λt</code> ; <code>p(X &gt; t) = e−λt</code> ; <code>E(X) = 1/λ</code> .</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="statistiques-a-deux-variables">
+        <h2>Statistiques à Deux Variables</h2>
+        <div class="formula-box"><strong>Point moyen :</strong> G(x̄, ȳ) | <strong>Covariance :</strong> Cov(X, Y) = (1/N)Σ xi yi − x̄ ȳ<br><strong>Coefficient de corrélation linéaire :</strong> r = Cov(X, Y) / (σX · σY) (ajustement affine fort si |r| proche de<br>1, ex. ≥ 0,87) <strong>Droite de régression de y en x :</strong> y = ax + b avec a = Cov(X, Y) / V(X) et b = ȳ − a x̄</div>
+      </section>
+      <nav class="pager" aria-label="Navigation"></nav>
+    </main>
+  </div>
+
+  <button class="toc-fab" type="button" aria-label="Sommaire">☰</button>
+  <button class="icon-btn to-top" type="button" aria-label="Haut">↑</button>
+
+  <footer class="footer">
+    <div class="container">
+      <a href="../../index.html#eco">← Retour à ma section</a>
+      <div class="footer-meta"><a class="footer-contact" href="mailto:yassinemami41@gmail.com">📧 yassinemami41@gmail.com</a><span class="copyright">© Joyboy</span></div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/catalog.js"></script>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

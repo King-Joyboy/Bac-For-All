@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bac Pour Tous — Résumés de toutes les sections</title>
+  <meta name="description" content="Tous les résumés du Baccalauréat Tunisien organisés par section : Informatique, Mathématiques, Sciences Expérimentales, Techniques, Économie & Gestion, Lettres.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem("bac-theme"))||"light"}catch(e){}</script>
+</head>
+<body data-root="">
+
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="index.html" data-go-picker>
+        <span class="brand-badge">🎓</span>
+        <span>Bac Pour Tous<span class="brand-sub">Résumés par section</span></span>
+      </a>
+      <nav class="nav">
+        <button class="nav-btn nav-pill" type="button" data-go-picker id="btn-change-sec" style="display:none">Changer de section</button>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Changer de thème">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- VUE 1 : CHOIX DE LA SECTION -->
+    <section id="picker-view">
+      <div class="container">
+        <div class="picker-hero">
+          <span class="chip">🇹🇳 Baccalauréat Tunisien · 6 Sections</span>
+          <h1>Choisis ta section du Bac</h1>
+          <p>Sélectionne ta filière pour accéder immédiatement à tous tes résumés organisés, clairs et prêts pour la révision.</p>
+        </div>
+        <div class="section-cards" data-section-cards></div>
+      </div>
+    </section>
+
+    <!-- VUE 2 : RÉSUMÉS DE LA SECTION CHOISIE -->
+    <section id="section-view" style="display:none">
+      <div class="sec-banner">
+        <div class="container">
+          <div class="sec-banner-inner">
+            <div class="sec-banner-title">
+              <div class="sec-ico" data-sec-ico></div>
+              <div>
+                <h1 data-sec-name></h1>
+                <p data-sec-desc></p>
+              </div>
+            </div>
+            <button class="btn" type="button" data-go-picker>← Toutes les sections</button>
+          </div>
+          <div class="sec-switcher" data-sec-switcher></div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="toolbar">
+          <div class="search-box">
+            <span class="s-ico">🔍</span>
+            <input type="search" placeholder="Rechercher une matière ou un chapitre…" data-search aria-label="Rechercher">
+          </div>
+          <div class="prog-summary">
+            <span data-sec-prog-txt>0% révisé</span>
+            <div class="mini-progress"><span data-sec-prog-bar></span></div>
+          </div>
+        </div>
+        <div class="subject-grid" data-subject-grid></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span>Bac Pour Tous · 65 résumés complets</span>
+      <div class="footer-meta">
+        <a class="footer-contact" href="mailto:yassinemami41@gmail.com">📧 yassinemami41@gmail.com</a>
+        <span class="copyright">© Joyboy</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="icon-btn to-top" type="button" aria-label="Haut de page">↑</button>
+
+  <script src="assets/js/catalog.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

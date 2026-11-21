@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Algorithmique — Bac Informatique</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem("bac-theme"))||"light"}catch(e){}</script>
+</head>
+<body data-root="../../" data-section="info" data-subject="info-algo" style="--accent:#0284c7">
+
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="../../index.html#info">
+        <span class="brand-badge">🎓</span>
+        <span>Bac Pour Tous<span class="brand-sub">Bac Informatique</span></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-pill" href="../../index.html#info">Accueil</a>
+        <div class="dropdown">
+          <button class="nav-btn nav-pill" type="button" data-dropdown-toggle>📚 Matières ▾</button>
+          <div class="dropdown-menu" data-subjects-menu></div>
+        </div>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Theme">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <div class="progress-bar"></div>
+
+  <section class="subject-hero">
+    <div class="container">
+      <nav class="crumbs"><a href="../../index.html">Accueil</a> › <a href="../../index.html#info">Bac Informatique</a> › <span>Algorithmique</span></nav>
+      <span class="chip">💻 Bac Informatique</span>
+      <h1><span>🧠</span> Algorithmique</h1>
+      <p class="subtitle">Structures de données, modularité, recherches, tris, récursivité, fichiers et algorithmes d&amp;#x27;approximation.</p>
+      <div class="meta-row">
+        <span class="chip neutral" data-chapcount></span>
+        <span class="chip neutral" data-readtime></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container layout">
+    <aside class="toc" aria-label="Sommaire"></aside>
+    <main class="content">
+<!-- 1. Structures de données -->
+      <section class="chapter" id="structures">
+        <h2>Structures de données</h2>
+        <p class="intro">Un algorithme manipule des objets déclarés dans le <strong>TDOG</strong> (Tableau de Déclaration des Objets Globaux) ou le <strong>TDOL</strong> (Locaux), et des types composés définis dans le <strong>TDNT</strong> (Tableau de Déclaration des Nouveaux Types).</p>
+
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>Structure</th><th>Déclaration (TDNT / TDO)</th><th>Usage principal</th></tr></thead>
+            <tbody>
+              <tr><td>Types simples</td><td><code>Entier</code>, <code>Réel</code>, <code>Caractère</code>, <code>Booléen</code>, <code>Chaîne</code></td><td>Variables élémentaires, compteurs, drapeaux (<code>Vrai</code> / <code>Faux</code>).</td></tr>
+              <tr><td>Tableau 1D (Vecteur)</td><td><code>Tab = Tableau de N Entiers</code> (indices <code>0</code> à <code>N-1</code>)</td><td>Collection homogène de taille fixe : accès <code>T[i]</code>.</td></tr>
+              <tr><td>Tableau 2D (Matrice)</td><td><code>Mat = Tableau de L × C Réels</code></td><td>Grille à <code>L</code> lignes et <code>C</code> colonnes : accès <code>M[i, j]</code>.</td></tr>
+              <tr><td>Enregistrement</td><td><code>Type Eleve = Enregistrement</code><br><code>nom : Chaîne ; moy : Réel</code><br><code>Fin</code></td><td>Regrouper des champs hétérogènes : accès <code>E.nom</code>, <code>T[i].moy</code>.</td></tr>
+              <tr><td>Fichier texte</td><td><code>F : Fichier Texte</code></td><td>Stockage permanent ligne par ligne (chaînes de caractères).</td></tr>
+              <tr><td>Fichier typé</td><td><code>F : Fichier de Eleve</code></td><td>Stockage permanent d'enregistrements ou de valeurs typées.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 2. Modularité -->
+      <section class="chapter" id="modules">
+        <h2>Sous-programmes &amp; passage de paramètres</h2>
+        <div class="compare">
+          <div>
+            <h4>⚙️ Fonction</h4>
+            <p>Retourne un <strong>seul résultat</strong> de type simple (ou chaîne) via <code>Retourner valeur</code>. Appelée dans une expression ou une affectation.</p>
+          </div>
+          <div>
+            <h4>🛠️ Procédure</h4>
+            <p>Exécute une action : affichage, remplissage, tri, ou modification de plusieurs résultats. Appelée directement par son nom.</p>
+          </div>
+        </div>
+        <div class="callout info">
+          <strong>Passage de paramètres</strong>
+          <ul>
+            <li><strong>Par valeur</strong> (sans <code>@</code>) : le paramètre effectif n'est <em>pas</em> modifié à la sortie du module.</li>
+            <li><strong>Par variable</strong> (noté <code>@</code>) : toute modification dans le module affecte directement la variable d'origine.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 3. Fonctions prédéfinies -->
+      <section class="chapter" id="chaines">
+        <h2>Fonctions prédéfinies sur les chaînes et caractères</h2>
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>Fonction / Procédure</th><th>Rôle et exemple</th></tr></thead>
+            <tbody>
+              <tr><td><code>Long(ch)</code></td><td>Retourne le nombre de caractères de <code>ch</code> (indices de <code>0</code> à <code>Long(ch)-1</code>).</td></tr>
+              <tr><td><code>Pos(ch1, ch2)</code></td><td>Retourne l'indice de la 1<sup>ère</sup> occurrence de <code>ch1</code> dans <code>ch2</code>, ou <code>-1</code> si absente.</td></tr>
+              <tr><td><code>Sous_chaîne(ch, d, f)</code></td><td>Extrait la sous-chaîne de l'indice <code>d</code> jusqu'à <code>f-1</code> (longueur <code>f - d</code>).</td></tr>
+              <tr><td><code>Effacer(ch, d, f)</code></td><td>Supprime les caractères de <code>ch</code> de l'indice <code>d</code> à <code>f-1</code>.</td></tr>
+              <tr><td><code>Convch(x)</code> / <code>Valeur(ch)</code></td><td>Convertit un nombre <code>x</code> en chaîne / une chaîne numérique <code>ch</code> en nombre.</td></tr>
+              <tr><td><code>Estnum(ch)</code></td><td>Retourne <code>Vrai</code> si <code>ch</code> est convertible en valeur numérique, <code>Faux</code> sinon.</td></tr>
+              <tr><td><code>Ord(c)</code> / <code>Chr(n)</code></td><td>Code ASCII du caractère <code>c</code> / caractère correspondant au code ASCII <code>n</code>.</td></tr>
+              <tr><td><code>Majus(ch)</code></td><td>Convertit toutes les lettres minuscules de <code>ch</code> en majuscules.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 4. Recherche -->
+      <section class="chapter" id="recherche">
+        <h2>Algorithmes de recherche</h2>
+
+        <h3>Recherche séquentielle (tableau quelconque)</h3>
+        <p>Parcourt le tableau élément par élément jusqu'à trouver <code>x</code> ou atteindre la fin.</p>
+        <pre data-title="Rech_Seq"><code class="language-algo">Fonction Rech_Seq(T : Tab ; n, x : Entier) : Booléen
+Début
+    i ← 0 ; trouve ← Faux
+    Tant Que (i &lt; n) et (Non trouve) Faire
+        Si T[i] = x Alors trouve ← Vrai
+        Sinon i ← i + 1
+        Fin Si
+    Fin Tant Que
+    Retourner trouve
+Fin</code></pre>
+
+        <h3>Recherche dichotomique (tableau obligatoirement trié croissant)</h3>
+        <p>Divise l'intervalle de recherche par deux à chaque itération. Complexité très efficace : \(O(\log_2 n)\).</p>
+        <pre data-title="Rech_Dicho"><code class="language-algo">Fonction Rech_Dicho(T : Tab ; n, x : Entier) : Booléen
+Début
+    g ← 0 ; d ← n - 1 ; trouve ← Faux
+    Tant Que (g ≤ d) et (Non trouve) Faire
+        m ← (g + d) Div 2
+        Si T[m] = x Alors trouve ← Vrai
+        Sinon Si x &lt; T[m] Alors d ← m - 1
+        Sinon g ← m + 1
+        Fin Si
+    Fin Tant Que
+    Retourner trouve
+Fin</code></pre>
+      </section>
+
+      <!-- 5. Tris -->
+      <section class="chapter" id="tris">
+        <h2>Algorithmes de tri (ordre croissant)</h2>
+
+        <h3>Tri par sélection</h3>
+        <p>À chaque étape <code>i</code>, on cherche l'indice du minimum dans le sous-tableau <code>[i .. n-1]</code> puis on le permute avec <code>T[i]</code>.</p>
+        <pre data-title="Tri_Selection"><code class="language-algo">Procédure Tri_Selection(@T : Tab ; n : Entier)
+Début
+    Pour i de 0 à n - 2 Faire
+        imin ← i
+        Pour j de i + 1 à n - 1 Faire
+            Si T[j] &lt; T[imin] Alors imin ← j Fin Si
+        Fin Pour
+        Si imin ≠ i Alors
+            aux ← T[i] ; T[i] ← T[imin] ; T[imin] ← aux
+        Fin Si
+    Fin Pour
+Fin</code></pre>
+
+        <h3>Tri à bulles</h3>
+        <p>Compare deux éléments adjacents et les permute s'ils sont mal ordonnés. On s'arrête dès qu'un parcours s'effectue sans aucune permutation.</p>
+        <pre data-title="Tri_Bulles"><code class="language-algo">Procédure Tri_Bulles(@T : Tab ; n : Entier)
+Début
+    Répéter
+        echange ← Faux
+        Pour i de 0 à n - 2 Faire
+            Si T[i] &gt; T[i + 1] Alors
+                aux ← T[i] ; T[i] ← T[i + 1] ; T[i + 1] ← aux
+                echange ← Vrai
+            Fin Si
+        Fin Pour
+        n ← n - 1
+    Jusqu'à (Non echange) ou (n = 1)
+Fin</code></pre>
+
+        <h3>Tri par insertion</h3>
+        <p>Insère chaque élément <code>T[i]</code> à sa place correcte dans la partie déjà triée <code>[0 .. i-1]</code> en décalant les éléments plus grands vers la droite.</p>
+        <pre data-title="Tri_Insertion"><code class="language-algo">Procédure Tri_Insertion(@T : Tab ; n : Entier)
+Début
+    Pour i de 1 à n - 1 Faire
+        tmp ← T[i] ; j ← i
+        Tant Que (j &gt; 0) et (T[j - 1] &gt; tmp) Faire
+            T[j] ← T[j - 1]
+            j ← j - 1
+        Fin Tant Que
+        T[j] ← tmp
+    Fin Pour
+Fin</code></pre>
+
+        <h3>Tri Shell</h3>
+        <p>Amélioration du tri par insertion utilisant un pas décroissant <code>p</code> (initialisé par <code>p ← 3 * p + 1</code> tant que <code>p &lt; n</code>, puis réduit par <code>p ← p Div 3</code>).</p>
+        <pre data-title="Tri_Shell"><code class="language-algo">Procédure Tri_Shell(@T : Tab ; n : Entier)
+Début
+    p ← 1
+    Tant Que p &lt; n Faire p ← 3 * p + 1 Fin Tant Que
+    Tant Que p &gt; 1 Faire
+        p ← p Div 3
+        Pour i de p à n - 1 Faire
+            tmp ← T[i] ; j ← i
+            Tant Que (j ≥ p) et (T[j - p] &gt; tmp) Faire
+                T[j] ← T[j - p]
+                j ← j - p
+            Fin Tant Que
+            T[j] ← tmp
+        Fin Pour
+    Fin Tant Que
+Fin</code></pre>
+      </section>
+
+      <!-- 6. Récursivité -->
+      <section class="chapter" id="recursivite">
+        <h2>La récursivité</h2>
+        <p class="intro">Un sous-programme est récursif s'il s'appelle lui-même. Pour éviter une boucle infinie, il doit obligatoirement comporter :</p>
+        <div class="compare">
+          <div><h4>🛑 Condition d'arrêt (cas de base)</h4><p>Renvoie directement un résultat sans appel récursif.</p></div>
+          <div><h4>🔁 Cas général</h4><p>Appelle le module sur un problème de taille strictement plus petite qui converge vers le cas de base.</p></div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>Problème classique</th><th>Définition récursive</th></tr></thead>
+            <tbody>
+              <tr><td>Factorielle <code>Fact(n)</code></td><td><code>Si n = 0 Alors Retourner 1 Sinon Retourner n * Fact(n - 1)</code></td></tr>
+              <tr><td>Puissance <code>Puiss(x, n)</code></td><td><code>Si n = 0 Alors Retourner 1 Sinon Retourner x * Puiss(x, n - 1)</code></td></tr>
+              <tr><td>PGCD (Euclide)</td><td><code>Si b = 0 Alors Retourner a Sinon Retourner PGCD(b, a Mod b)</code></td></tr>
+              <tr><td>Palindrome <code>Pal(ch)</code></td><td><code>Si Long(ch) ≤ 1 Alors Vrai Sinon Si ch[0] ≠ ch[Long(ch)-1] Alors Faux Sinon Pal(Sous_chaîne(ch, 1, Long(ch)-1))</code></td></tr>
+              <tr><td>Somme tableau <code>Som(T, n)</code></td><td><code>Si n = 0 Alors Retourner 0 Sinon Retourner T[n - 1] + Som(T, n - 1)</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 7. Fichiers -->
+      <section class="chapter" id="fichiers">
+        <h2>Gestion des fichiers en algorithme</h2>
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>Primitive algorithmique</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>Ouvrir("nom", F, mode)</code></td><td>Ouvre le fichier physique <code>"nom"</code> associé à <code>F</code> en mode <code>"r"</code> (lecture), <code>"w"</code> (écriture / création) ou <code>"a"</code> (ajout en fin).</td></tr>
+              <tr><td><code>Lire_ligne(F, ch)</code> / <code>Écrire_nl(F, ch)</code></td><td>Lit une ligne dans <code>ch</code> / écrit <code>ch</code> suivie d'un retour à la ligne (fichier texte).</td></tr>
+              <tr><td><code>Lire(F, e)</code> / <code>Écrire(F, e)</code></td><td>Lit / écrit un enregistrement ou élément typé <code>e</code> (fichier typé).</td></tr>
+              <tr><td><code>Fin_fichier(F)</code></td><td>Fonction booléenne retournant <code>Vrai</code> lorsque la fin du fichier est atteinte.</td></tr>
+              <tr><td><code>Fermer(F)</code></td><td>Ferme le fichier et libère la ressource (obligatoire après tout traitement).</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 8. Arithmétique & Approximation -->
+      <section class="chapter" id="arithmetique">
+        <h2>Algorithmes arithmétiques et d'approximation</h2>
+        <div class="cards two">
+          <div class="card">
+            <h4>🔢 Test de primalité</h4>
+            <p>Un entier \(n > 1\) est premier s'il n'a aucun diviseur dans \([2 \dots \operatorname{Ent}(\sqrt{n})]\) (ou <code>n Div 2</code>).</p>
+          </div>
+          <div class="card">
+            <h4>🔄 Conversion Décimal → Base b</h4>
+            <p>Divisions euclidiennes successives par <code>b</code> ; on concatène les restes (convertis en chiffres <code>0..9</code> ou lettres <code>A..F</code>) par la gauche jusqu'à ce que le quotient soit nul.</p>
+          </div>
+          <div class="card">
+            <h4>🎯 Dichotomie pour \(f(x) = 0\)</h4>
+            <p>Sur \([a, b]\) avec précision <code>eps</code> : tant que \((b - a) > \text{eps}\) et \(f(m) \neq 0\), poser \(m \leftarrow (a+b)/2\) ; si \(f(a)\times f(m) < 0\) alors \(b \leftarrow m\) sinon \(a \leftarrow m\).</p>
+          </div>
+          <div class="card">
+            <h4>📐 Calcul approché d'intégrale</h4>
+            <p>Sur \([a, b]\), \(n\) subdivisions, pas \(h = \dfrac{b-a}{n}\) :</p>
+            <ul>
+              <li><strong>Rectangles (gauche)</strong> : \(S \leftarrow \sum_{i=0}^{n-1} f(a + i\cdot h)\), résultat \(h\cdot S\).</li>
+              <li><strong>Trapèzes</strong> : \(S \leftarrow \dfrac{f(a)+f(b)}{2} + \sum_{i=1}^{n-1} f(a + i\cdot h)\), résultat \(h\cdot S\).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. Astuces Bac -->
+      <section class="chapter" id="astuces">
+        <h2>Méthode &amp; astuces Bac</h2>
+        <div class="callout bac">
+          <strong>Réflexes indispensables le jour de l'examen</strong>
+          <ul>
+            <li>Vérifie toujours les <strong>conditions de saisie</strong> avec une boucle <code>Répéter ... Jusqu'à</code>.</li>
+            <li>Déclare tous les objets utilisés dans les tableaux <strong>TDOG / TDOL</strong> avec leurs types exacts (sans oublier les variables de boucle et auxiliaires).</li>
+            <li>Ferme systématiquement chaque fichier ouvert (<code>Fermer(F)</code>) avant de quitter le sous-programme.</li>
+            <li>Vérifie le passage par variable <code>@</code> pour tout paramètre modifié dans une procédure.</li>
+          </ul>
+        </div>
+      </section>
+      <nav class="pager" aria-label="Navigation"></nav>
+    </main>
+  </div>
+
+  <button class="toc-fab" type="button" aria-label="Sommaire">☰</button>
+  <button class="icon-btn to-top" type="button" aria-label="Haut">↑</button>
+
+  <footer class="footer">
+    <div class="container">
+      <a href="../../index.html#info">← Retour à ma section</a>
+      <div class="footer-meta"><a class="footer-contact" href="mailto:yassinemami41@gmail.com">📧 yassinemami41@gmail.com</a><span class="copyright">© Joyboy</span></div>
+    </div>
+  </footer>
+
+  <script src="../../assets/vendor/katex/katex.min.js"></script>
+  <script src="../../assets/vendor/katex/auto-render.min.js"></script>
+  <script src="../../assets/vendor/prism/prism.min.js"></script>
+  <script src="../../assets/js/catalog.js"></script>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

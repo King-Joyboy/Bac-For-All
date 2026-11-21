@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Python &amp; PyQt5 — Bac Informatique</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem("bac-theme"))||"light"}catch(e){}</script>
+</head>
+<body data-root="../../" data-section="info" data-subject="info-python" style="--accent:#2563eb">
+
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="../../index.html#info">
+        <span class="brand-badge">🎓</span>
+        <span>Bac Pour Tous<span class="brand-sub">Bac Informatique</span></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-pill" href="../../index.html#info">Accueil</a>
+        <div class="dropdown">
+          <button class="nav-btn nav-pill" type="button" data-dropdown-toggle>📚 Matières ▾</button>
+          <div class="dropdown-menu" data-subjects-menu></div>
+        </div>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Theme">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <div class="progress-bar"></div>
+
+  <section class="subject-hero">
+    <div class="container">
+      <nav class="crumbs"><a href="../../index.html">Accueil</a> › <a href="../../index.html#info">Bac Informatique</a> › <span>Python &amp; PyQt5</span></nav>
+      <span class="chip">💻 Bac Informatique</span>
+      <h1><span>🐍</span> Python &amp; PyQt5</h1>
+      <p class="subtitle">Traduction Algorithme → Python, tableaux NumPy, fichiers texte et binaires, tris, récursivité et interfaces PyQt5.</p>
+      <div class="meta-row">
+        <span class="chip neutral" data-chapcount></span>
+        <span class="chip neutral" data-readtime></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container layout">
+    <aside class="toc" aria-label="Sommaire"></aside>
+    <main class="content">
+<!-- 1. Correspondance -->
+      <section class="chapter" id="correspondance">
+        <h2>Correspondance Algorithme ↔ Python</h2>
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>Algorithme</th><th>Équivalent Python</th></tr></thead>
+            <tbody>
+              <tr><td><code>a Div b</code> / <code>a Mod b</code> / <code>a<sup>b</sup></code></td><td><code>a // b</code> / <code>a % b</code> / <code>a ** b</code></td></tr>
+              <tr><td><code>=</code>, <code>≠</code>, <code>et</code>, <code>ou</code>, <code>Non</code></td><td><code>==</code>, <code>!=</code>, <code>and</code>, <code>or</code>, <code>not</code></td></tr>
+              <tr><td><code>Lire(x)</code> / <code>Écrire(x)</code></td><td><code>x = int(input("..."))</code> (ou <code>float</code> / <code>input</code>) / <code>print(x)</code></td></tr>
+              <tr><td><code>Pour i de 0 à n-1 Faire</code></td><td><code>for i in range(n):</code> (ou <code>range(d, f, pas)</code>)</td></tr>
+              <tr><td><code>Tant Que cond Faire</code></td><td><code>while cond:</code></td></tr>
+              <tr><td><code>Répéter ... Jusqu'à cond</code></td><td><code>valide = False</code><br><code>while not valide: ... valide = cond</code></td></tr>
+              <tr><td><code>Long(ch)</code> / <code>Pos(c, ch)</code></td><td><code>len(ch)</code> / <code>ch.find(c)</code> (renvoie <code>-1</code> si absent)</td></tr>
+              <tr><td><code>Sous_chaîne(ch, d, f)</code></td><td><code>ch[d:f]</code> (du caractère d'indice <code>d</code> à <code>f-1</code>)</td></tr>
+              <tr><td><code>Convch(x)</code> / <code>Valeur(ch)</code></td><td><code>str(x)</code> / <code>int(ch)</code> ou <code>float(ch)</code></td></tr>
+              <tr><td><code>Estnum(ch)</code> / <code>Majus(ch)</code></td><td><code>ch.isdecimal()</code> (entiers positifs) / <code>ch.upper()</code></td></tr>
+              <tr><td><code>Aléa(a, b)</code> / <code>Racine(x)</code></td><td><code>from random import randint</code> → <code>randint(a, b)</code> / <code>sqrt(x)</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 2. Tableaux NumPy -->
+      <section class="chapter" id="tableaux">
+        <h2>Tableaux NumPy et enregistrements</h2>
+        <p class="intro">En Bac Informatique, les tableaux statiques 1D, 2D et tableaux d'enregistrements sont implémentés avec <code>numpy.array</code> et les dictionnaires <code>dict</code>.</p>
+        <pre data-title="tableaux.py"><code class="language-python">from numpy import array
+
+# Tableau 1D de N entiers / chaînes / réels
+T = array([int()] * N)
+T_ch = array([str()] * N)      # ou dtype=object pour chaînes de longueur variable
+
+# Matrice (Tableau 2D) de L lignes et C colonnes
+M = array([[int()] * C] * L)   # Accès : M[i, j]
+
+# Enregistrement (dictionnaire) et Tableau d'enregistrements
+e = {"nom": "", "moy": 0.0}    # Accès : e["nom"]
+TE = array([dict()] * N)       # Tableau de N enregistrements
+for i in range(N):
+    TE[i] = {"nom": input("Nom: "), "moy": float(input("Moy: "))}</code></pre>
+      </section>
+
+      <!-- 3. Fichiers -->
+      <section class="chapter" id="fichiers">
+        <h2>Manipulation des fichiers en Python</h2>
+
+        <h3>Fichiers texte (<code>.txt</code>)</h3>
+        <pre data-title="fichiers_texte.py"><code class="language-python"># Écriture dans un fichier texte
+f = open("donnees.txt", "w")       # "a" pour ajouter sans écraser
+f.write(ch + "\n")
+f.close()
+
+# Lecture ligne par ligne jusqu'à la fin
+f = open("donnees.txt", "r")
+ligne = f.readline()
+while ligne != "":
+    ligne = ligne[:len(ligne) - 1] # ou ligne.strip() pour enlever "\n"
+    # ... traitement de ligne ...
+    ligne = f.readline()
+f.close()</code></pre>
+
+        <h3>Fichiers typés / binaires (<code>.dat</code> avec <code>pickle</code>)</h3>
+        <pre data-title="fichiers_binaires.py"><code class="language-python">from pickle import dump, load
+
+# Écriture d'enregistrements dans un fichier binaire
+f = open("eleves.dat", "wb")       # "ab" pour ajouter en fin
+dump(e, f)
+f.close()
+
+# Lecture de tous les enregistrements (boucle + try / except)
+f = open("eleves.dat", "rb")
+fin = False
+while not fin:
+    try:
+        e = load(f)
+        # ... traitement de e["nom"], e["moy"] ...
+    except:
+        fin = True
+f.close()</code></pre>
+      </section>
+
+      <!-- 4. Tris & Récursivité -->
+      <section class="chapter" id="tris">
+        <h2>Implémentation des tris, recherches et récursivité</h2>
+        <pre data-title="algorithmes.py"><code class="language-python"># Recherche dichotomique (tableau T trié croissant)
+def rech_dicho(T, n, x):
+    g, d, trouve = 0, n - 1, False
+    while g &lt;= d and not trouve:
+        m = (g + d) // 2
+        if T[m] == x:
+            trouve = True
+        elif x &lt; T[m]:
+            d = m - 1
+        else:
+            g = m + 1
+    return trouve
+
+# Tri à bulles
+def tri_bulles(T, n):
+    echange = True
+    while echange and n &gt; 1:
+        echange = False
+        for i in range(n - 1):
+            if T[i] &gt; T[i + 1]:
+                T[i], T[i + 1] = T[i + 1], T[i]
+                echange = True
+        n -= 1
+
+# Tri par insertion
+def tri_insertion(T, n):
+    for i in range(1, n):
+        tmp = T[i]
+        j = i
+        while j &gt; 0 and T[j - 1] &gt; tmp:
+            T[j] = T[j - 1]
+            j -= 1
+        T[j] = tmp
+
+# Exemple récursif : PGCD d'Euclide
+def pgcd(a, b):
+    if b == 0:
+        return a
+    return pgcd(b, a % b)</code></pre>
+      </section>
+
+      <!-- 5. PyQt5 -->
+      <section class="chapter" id="pyqt5">
+        <h2>Interfaces graphiques avec PyQt5 (Qt Designer)</h2>
+
+        <h3>Squelette complet d'une application PyQt5</h3>
+        <pre data-title="app.py"><code class="language-python">from PyQt5.uic import loadUi
+from PyQt5.QtWidgets import QApplication, QMessageBox, QTableWidgetItem
+
+def traiter():
+    ch = fen.le_saisie.text()
+    if ch == "":
+        QMessageBox.critical(fen, "Erreur", "Veuillez remplir le champ !")
+    else:
+        fen.lbl_res.setText("Résultat : " + ch.upper())
+
+app = QApplication([])
+fen = loadUi("interface.ui")
+fen.btn_valider.clicked.connect(traiter)
+fen.show()
+app.exec_()</code></pre>
+
+        <h3>Méthodes essentielles des widgets PyQt5</h3>
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>Widget Qt</th><th>Méthodes indispensables au Bac</th></tr></thead>
+            <tbody>
+              <tr><td><code>QLineEdit</code></td><td><code>.text()</code> (lire texte), <code>.setText(ch)</code> (écrire), <code>.clear()</code> (vider).</td></tr>
+              <tr><td><code>QLabel</code></td><td><code>.setText(ch)</code> (afficher un message ou résultat), <code>.clear()</code>.</td></tr>
+              <tr><td><code>QPushButton</code></td><td><code>.clicked.connect(nom_fonction)</code> (associer un clic à une fonction <strong>sans parenthèses</strong>).</td></tr>
+              <tr><td><code>QRadioButton</code> / <code>QCheckBox</code></td><td><code>.isChecked()</code> (retourne <code>True</code> si coché), <code>.setChecked(False)</code>.</td></tr>
+              <tr><td><code>QComboBox</code></td><td><code>.currentText()</code> (élément sélectionné), <code>.addItem(ch)</code>, <code>.currentIndex()</code>.</td></tr>
+              <tr><td><code>QListWidget</code></td><td><code>.addItem(ch)</code> (ajouter une ligne), <code>.clear()</code> (vider la liste).</td></tr>
+              <tr><td><code>QTableWidget</code></td><td><code>.setRowCount(L)</code>, <code>.setColumnCount(C)</code>, <code>.setItem(i, j, QTableWidgetItem(str(val)))</code>.</td></tr>
+              <tr><td><code>QMessageBox</code></td><td><code>QMessageBox.critical(fen, "Titre", "Message")</code> (ou <code>information</code> / <code>warning</code>).</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 6. Pièges -->
+      <section class="chapter" id="pieges">
+        <h2>Pièges classiques en Python / PyQt5</h2>
+        <div class="callout warn">
+          <strong>À éviter absolument le jour de la pratique</strong>
+          <ol>
+            <li>Dans <code>.clicked.connect(ma_fonction)</code>, ne mets <strong>jamais de parenthèses</strong> après le nom de la fonction.</li>
+            <li>Dans un <code>QTableWidget</code>, <code>QTableWidgetItem(...)</code> attend toujours une <strong>chaîne de caractères</strong> : utilise <code>str(...)</code> pour les nombres.</li>
+            <li>Pour un fichier binaire <code>.dat</code>, ouvre-le toujours en mode <code>"rb"</code>, <code>"wb"</code> ou <code>"ab"</code> (avec le <code>b</code>).</li>
+          </ol>
+        </div>
+      </section>
+      <nav class="pager" aria-label="Navigation"></nav>
+    </main>
+  </div>
+
+  <button class="toc-fab" type="button" aria-label="Sommaire">☰</button>
+  <button class="icon-btn to-top" type="button" aria-label="Haut">↑</button>
+
+  <footer class="footer">
+    <div class="container">
+      <a href="../../index.html#info">← Retour à ma section</a>
+      <div class="footer-meta"><a class="footer-contact" href="mailto:yassinemami41@gmail.com">📧 yassinemami41@gmail.com</a><span class="copyright">© Joyboy</span></div>
+    </div>
+  </footer>
+
+  <script src="../../assets/vendor/prism/prism.min.js"></script>
+  <script src="../../assets/js/catalog.js"></script>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

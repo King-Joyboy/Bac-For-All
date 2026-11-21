@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chimie — Bac Informatique</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem("bac-theme"))||"light"}catch(e){}</script>
+</head>
+<body data-root="../../" data-section="info" data-subject="info-chimie" style="--accent:#059669">
+
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="../../index.html#info">
+        <span class="brand-badge">🎓</span>
+        <span>Bac Pour Tous<span class="brand-sub">Bac Informatique</span></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-pill" href="../../index.html#info">Accueil</a>
+        <div class="dropdown">
+          <button class="nav-btn nav-pill" type="button" data-dropdown-toggle>📚 Matières ▾</button>
+          <div class="dropdown-menu" data-subjects-menu></div>
+        </div>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Theme">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <div class="progress-bar"></div>
+
+  <section class="subject-hero">
+    <div class="container">
+      <nav class="crumbs"><a href="../../index.html">Accueil</a> › <a href="../../index.html#info">Bac Informatique</a> › <span>Chimie</span></nav>
+      <span class="chip">💻 Bac Informatique</span>
+      <h1><span>⚗️</span> Chimie</h1>
+      <p class="subtitle">Formules essentielles, tableaux d&amp;#x27;avancement, équilibres, pH, piles électrochimiques et chimie organique.</p>
+      <div class="meta-row">
+        <span class="chip neutral" data-chapcount></span>
+        <span class="chip neutral" data-readtime></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container layout">
+    <aside class="toc" aria-label="Sommaire"></aside>
+    <main class="content">
+<!-- 1. Cinétique -->
+      <section class="chapter" id="cinetique">
+        <h2>Cinétique chimique</h2>
+        <p class="intro">Pour une réaction chimique d'équation : \(a\,\text{A} + b\,\text{B} \longrightarrow c\,\text{C} + d\,\text{D}\).</p>
+
+        <div class="formula-grid">
+          <div class="formula"><span class="label">Avancement \(x(t)\) (mol)</span>$$n(\text{A}) = n_0(\text{A}) - ax \;;\; n(\text{C}) = n_0(\text{C}) + cx$$</div>
+          <div class="formula"><span class="label">Vitesse instantanée</span>$$v(t) = \frac{dx}{dt} \quad (\text{mol}\cdot\text{s}^{-1})$$</div>
+          <div class="formula"><span class="label">Vitesse volumique</span>$$v_{\text{vol}}(t) = \frac{1}{V}\frac{dx}{dt} \quad (\text{mol}\cdot\text{L}^{-1}\cdot\text{s}^{-1})$$</div>
+          <div class="formula"><span class="label">Temps de demi-réaction \(t_{1/2}\)</span>$$x(t_{1/2}) = \frac{x_f}{2}$$</div>
+        </div>
+        <p><strong>Graphiquement</strong> : \(v(t_1)\) est le coefficient directeur (la pente) de la tangente à la courbe \(x = f(t)\) à l'instant \(t_1\).</p>
+
+        <h3>Facteurs cinétiques</h3>
+        <div class="cards">
+          <div class="card"><h4>🌡️ Température</h4><p>Plus \(T\) augmente, plus la vitesse augmente (et \(t_{1/2}\) diminue).</p></div>
+          <div class="card"><h4>🧪 Concentration initiale</h4><p>Plus la concentration initiale des réactifs est grande, plus la réaction est rapide.</p></div>
+          <div class="card"><h4>⚡ Catalyseur</h4><p>Accélère la réaction sans être consommé et <strong>sans modifier l'état final</strong> (\(x_f\) inchangé).</p></div>
+        </div>
+      </section>
+
+      <!-- 2. Équilibre -->
+      <section class="chapter" id="equilibre">
+        <h2>Équilibre chimique et loi d'action de masse</h2>
+        <p class="intro">Pour un système siège d'une réaction limitée : \(a\,\text{A} + b\,\text{B} \rightleftharpoons c\,\text{C} + d\,\text{D}\).</p>
+
+        <div class="formula-grid">
+          <div class="formula"><span class="label">Taux d'avancement final</span>$$\tau_f = \frac{x_f}{x_{\max}} \quad (0 < \tau_f \le 1)$$</div>
+          <div class="formula"><span class="label">Fonction des concentrations \(\Pi\)</span>$$\Pi = \frac{[\text{C}]^c \cdot [\text{D}]^d}{[\text{A}]^a \cdot [\text{B}]^b}$$</div>
+        </div>
+        <ul>
+          <li>Si \(\tau_f = 1\) (\(x_f = x_{\max}\)) : réaction <strong>totale</strong>. Si \(\tau_f < 1\) (\(x_f < x_{\max}\)) : réaction <strong>limitée</strong> (équilibre dynamique).</li>
+          <li><strong>Constante d'équilibre \(K\)</strong> : à l'équilibre dynamique, \(\Pi_{\text{éq}} = K\). Elle ne dépend que de la <strong>température</strong>.</li>
+        </ul>
+
+        <div class="callout warn">
+          <strong>Attention à \(\Pi\)</strong>
+          Les <strong>solides</strong> et le <strong>solvant</strong> (l'eau en solution aqueuse) n'apparaissent jamais dans \(\Pi\) (leur activité vaut \(1\)).
+        </div>
+
+        <h3>Sens d'évolution spontanée &amp; lois de modération</h3>
+        <ul>
+          <li>\(\Pi < K\) : évolution dans le <strong>sens direct</strong> (sens 1).</li>
+          <li>\(\Pi > K\) : évolution dans le <strong>sens inverse</strong> (sens 2).</li>
+          <li>\(\Pi = K\) : le système est à l'équilibre.</li>
+          <li><strong>Température</strong> : une augmentation de \(T\) déplace l'équilibre dans le sens <strong>endothermique</strong>.</li>
+          <li><strong>Pression (gaz)</strong> : une augmentation de \(P\) déplace l'équilibre dans le sens qui <strong>diminue le nombre de moles de gaz</strong>.</li>
+        </ul>
+      </section>
+
+      <!-- 3. Acides, bases, pH -->
+      <section class="chapter" id="acides-bases">
+        <h2>Acides, bases et pH des solutions aqueuses</h2>
+        <div class="formula-grid">
+          <div class="formula"><span class="label">Produit ionique de l'eau (25 °C)</span>$$K_e = [\text{H}_3\text{O}^+][\text{OH}^-] = 10^{-14} \;;\; pK_e = 14$$</div>
+          <div class="formula"><span class="label">Définition du pH</span>$$\text{pH} = -\log[\text{H}_3\text{O}^+] \iff [\text{H}_3\text{O}^+] = 10^{-\text{pH}}$$</div>
+          <div class="formula"><span class="label">Constante d'acidité \(K_a\) (\(\text{AH}/\text{A}^-\))</span>$$K_a = \frac{[\text{A}^-][\text{H}_3\text{O}^+]}{[\text{AH}]} \;;\; \text{pH} = pK_a + \log\frac{[\text{A}^-]}{[\text{AH}]}$$</div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>Type de solution</th><th>Relation de pH (à 25 °C)</th><th>Remarque / Dilution</th></tr></thead>
+            <tbody>
+              <tr><td>Acide fort (\(\tau_f = 1\))</td><td>\(\text{pH} = -\log C_a\)</td><td>Dilution par 10 ⟹ le pH augmente de 1.</td></tr>
+              <tr><td>Base forte (\(\tau_f = 1\))</td><td>\(\text{pH} = 14 + \log C_b\)</td><td>Dilution par 10 ⟹ le pH diminue de 1.</td></tr>
+              <tr><td>Acide faible (\(\tau_f < 1\))</td><td>\(\text{pH} = \tfrac12(pK_a - \log C_a)\)</td><td>Valable si faiblement ionisé (\(\tau_f \le 0{,}05\)).</td></tr>
+              <tr><td>Base faible (\(\tau_f < 1\))</td><td>\(\text{pH} = 7 + \tfrac12(pK_a + \log C_b)\)</td><td>Valable si faiblement ionisée.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Dosage acido-basique</h3>
+        <ul>
+          <li><strong>À l'équivalence (E)</strong> : \(C_a V_a = C_b V_{bE}\).</li>
+          <li>Acide fort + Base forte ⟹ \(\text{pH}_E = 7\).</li>
+          <li>Acide faible + Base forte ⟹ \(\text{pH}_E > 7\) (milieu basique).</li>
+          <li>Base faible + Acide fort ⟹ \(\text{pH}_E < 7\) (milieu acide).</li>
+          <li><strong>À la demi-équivalence</strong> (\(V_b = V_{bE}/2\), acide faible dosé par base forte) : \([\text{AH}] = [\text{A}^-] \implies \text{pH} = pK_a\) (solution tampon).</li>
+        </ul>
+      </section>
+
+      <!-- 4. Piles -->
+      <section class="chapter" id="piles">
+        <h2>Les piles électrochimiques</h2>
+        <p class="intro">Symbole : \(\text{M}_1 \mid \text{M}_1^{n_1+}(C_1) \;\|\; \text{M}_2^{n_2+}(C_2) \mid \text{M}_2\). Équation associée : \(n_2\text{M}_1 + n_1\text{M}_2^{n_2+} \rightleftharpoons n_2\text{M}_1^{n_1+} + n_1\text{M}_2\) (\(n = n_1 n_2\) électrons échangés).</p>
+
+        <div class="formula-grid">
+          <div class="formula"><span class="label">Force électromotrice (f.é.m.)</span>$$E = V_{\text{droite}} - V_{\text{gauche}} = E^\circ - \frac{0{,}06}{n}\log\Pi, \quad \Pi = \frac{[\text{M}_1^{n_1+}]^{n_2}}{[\text{M}_2^{n_2+}]^{n_1}}$$</div>
+          <div class="formula"><span class="label">f.é.m. standard &amp; pile usée (\(E=0\))</span>$$E^\circ = E^\circ(\text{M}_2^{n_2+}/\text{M}_2) - E^\circ(\text{M}_1^{n_1+}/\text{M}_1) \;;\; K = 10^{\frac{n E^\circ}{0{,}06}}$$</div>
+        </div>
+        <ul>
+          <li><strong>Si \(E > 0\)</strong> : électrode de droite = pôle \(+\) (<strong>cathode</strong>, réduction) ; électrode de gauche = pôle \(-\) (<strong>anode</strong>, oxydation). Réaction spontanée dans le <strong>sens direct</strong>.</li>
+          <li><strong>Si \(E < 0\)</strong> : polarités inversées ; réaction spontanée dans le <strong>sens inverse</strong>.</li>
+        </ul>
+      </section>
+
+      <!-- 5. Chimie organique -->
+      <section class="chapter" id="organique">
+        <h2>Chimie organique : alcools et estérification</h2>
+        <ul>
+          <li><strong>Classes d'alcools</strong> (\(\text{R}-\text{OH}\)) : <strong>primaire</strong> (carbone fonctionnel lié à 0 ou 1 carbone), <strong>secondaire</strong> (lié à 2 carbones), <strong>tertiaire</strong> (lié à 3 carbones).</li>
+          <li><strong>Oxydation ménagée</strong> :
+            <ul>
+              <li>Alcool primaire \(\xrightarrow{[\text{O}]}\) Aldéhyde \(\xrightarrow{[\text{O}]\text{ excès}}\) Acide carboxylique.</li>
+              <li>Alcool secondaire \(\xrightarrow{[\text{O}]}\) Cétone.</li>
+              <li>Alcool tertiaire : <em>ne subit pas</em> d'oxydation ménagée.</li>
+            </ul>
+          </li>
+        </ul>
+        <div class="formula"><span class="label">Estérification et hydrolyse</span>$$\text{Acide carboxylique} + \text{Alcool} \rightleftharpoons \text{Ester} + \text{Eau}$$</div>
+        <div class="callout bac">
+          <strong>Caractéristiques &amp; rendements (mélange initial équimolaire)</strong>
+          Réaction <strong>lente, limitée et athermique</strong> (la température accélère la réaction sans modifier le rendement \(r\)).<br>
+          Alcool primaire : \(r \approx 67\%\) &nbsp;|&nbsp; Alcool secondaire : \(r \approx 60\%\) &nbsp;|&nbsp; Alcool tertiaire : \(r \approx 5\%\).
+        </div>
+      </section>
+      <nav class="pager" aria-label="Navigation"></nav>
+    </main>
+  </div>
+
+  <button class="toc-fab" type="button" aria-label="Sommaire">☰</button>
+  <button class="icon-btn to-top" type="button" aria-label="Haut">↑</button>
+
+  <footer class="footer">
+    <div class="container">
+      <a href="../../index.html#info">← Retour à ma section</a>
+      <div class="footer-meta"><a class="footer-contact" href="mailto:yassinemami41@gmail.com">📧 yassinemami41@gmail.com</a><span class="copyright">© Joyboy</span></div>
+    </div>
+  </footer>
+
+  <script src="../../assets/vendor/katex/katex.min.js"></script>
+  <script src="../../assets/vendor/katex/auto-render.min.js"></script>
+  <script src="../../assets/js/catalog.js"></script>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

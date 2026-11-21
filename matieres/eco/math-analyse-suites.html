@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mathématiques : Analyse &amp; Suites — Bac Économie &amp; Gestion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem("bac-theme"))||"light"}catch(e){}</script>
+</head>
+<body data-root="../../" data-section="eco" data-subject="eco-math-analyse-suites" style="--accent:#0284c7">
+
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="../../index.html#eco">
+        <span class="brand-badge">🎓</span>
+        <span>Bac Pour Tous<span class="brand-sub">Bac Économie &amp; Gestion</span></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-pill" href="../../index.html#eco">Accueil</a>
+        <div class="dropdown">
+          <button class="nav-btn nav-pill" type="button" data-dropdown-toggle>📚 Matières ▾</button>
+          <div class="dropdown-menu" data-subjects-menu></div>
+        </div>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Theme">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <div class="progress-bar"></div>
+
+  <section class="subject-hero">
+    <div class="container">
+      <nav class="crumbs"><a href="../../index.html">Accueil</a> › <a href="../../index.html#eco">Bac Économie &amp; Gestion</a> › <span>Mathématiques : Analyse &amp; Suites</span></nav>
+      <span class="chip">📊 Bac Économie &amp; Gestion</span>
+      <h1><span>📈</span> Mathématiques : Analyse &amp; Suites</h1>
+      <p class="subtitle">4ème Économie &amp; Gestion (Tunisie) • Limites, Dérivabilité, ln/exp, Suites &amp; Intégrales</p>
+      <div class="meta-row">
+        <span class="chip neutral" data-chapcount></span>
+        <span class="chip neutral" data-readtime></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container layout">
+    <aside class="toc" aria-label="Sommaire"></aside>
+    <main class="content">
+      <section class="chapter" id="limites-continuite-branches-infi">
+        <h2>Limites, Continuité &amp; Branches Infinies</h2>
+        <ul>
+          <li><strong>Théorème des Valeurs Intermédiaires (TVI) :</strong> Si <code>f</code> est continue sur <code>[a, b]</code> et <code>f(a) · f(b) &lt; 0</code> , il existe au moins un <code>α ∈ ]a, b[</code> tel que <code>f(α) = 0</code> (unique si <code>f</code> est strictement monotone).</li>
+          <li><strong>Asymptotes :</strong></li>
+          <li style="margin-inline-start:1.2rem;list-style-type:circle"><code>limx→a f(x) = ±∞</code> ⇒ Asymptote verticale <code>x = a</code> .</li>
+          <li style="margin-inline-start:1.2rem;list-style-type:circle"><code>limx→±∞ f(x) = b</code> ⇒ Asymptote horizontale <code>y = b</code> .</li>
+          <li style="margin-inline-start:1.2rem;list-style-type:circle"><code>limx→±∞ [f(x) − (ax + b)] = 0</code> ⇒ Asymptote oblique <code>y = ax + b</code> .</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="derivabilite-etude-de-fonctions">
+        <h2>Dérivabilité &amp; Étude de Fonctions</h2>
+        <div class="table-wrap"><table class="tbl"><thead><tr><th>f(x)</th><th>f&#x27;(x)</th><th>Composée</th><th>Dérivée</th></tr></thead><tbody>
+              <tr><td>xn</td><td>n xn−1</td><td>un</td><td>n u&#x27; un−1</td></tr>
+              <tr><td>1/x</td><td>−1/x²</td><td>u/v</td><td>(u&#x27;v − uv&#x27;) / v²</td></tr>
+              <tr><td>√x</td><td>1/(2√x)</td><td>√u</td><td>u&#x27; / (2√u)</td></tr>
+              <tr><td>ln(x)</td><td>1/x</td><td>ln(u)</td><td>u&#x27; / u</td></tr>
+              <tr><td>ex</td><td>ex</td><td>eu</td><td>u&#x27; eu</td></tr>
+            </tbody></table></div>
+        <ul>
+          <li><strong>Tangente en x0 :</strong> <code>y = f&#x27;(x0)(x − x0) + f(x0)</code> .</li>
+          <li><strong>Application économique :</strong> Coût marginal <code>Cm(x) ≈ C&#x27;(x)</code> ; Coût moyen <code>CM(x) = C(x)/x</code> (minimal quand <code>CM(x) = C&#x27;(x)</code> ) ; Élasticité <code>E(x) = x · f&#x27;(x) / f(x)</code> .</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="fonctions-logarithme-ln-exponent">
+        <h2>Fonctions Logarithme (ln) &amp; Exponentielle (exp)</h2>
+        <div class="formula-box"><strong>ln(ab) = ln a + ln b</strong> | <strong>ln(a/b) = ln a − ln b</strong> | <strong>ln(an) = n ln a</strong> | <strong>eln x = x</strong> (x &gt; 0) | <strong>ln(ex) = x</strong><br><strong>Limites usuelles :</strong> lim+∞ (ln x)/x = 0 | lim0+ x ln x = 0 | lim+∞ ex/x = +∞ | lim−∞ x ex = 0</div>
+      </section>
+
+      <section class="chapter" id="suites-reelles">
+        <h2>Suites Réelles</h2>
+        <div class="table-wrap"><table class="tbl"><thead><tr><th>Type</th><th>Relation</th><th>Terme général</th><th>Somme des termes</th></tr></thead><tbody>
+              <tr><td>Arithmétique</td><td>un+1 = un + r</td><td>un = up + (n − p)r</td><td>S = (nb termes) × (udeb + ufin) / 2</td></tr>
+              <tr><td>Géométrique</td><td>un+1 = q · un</td><td>un = up · qn−p</td><td>S = up · (1 − qnb) / (1 − q) (q ≠ 1)</td></tr>
+            </tbody></table></div>
+        <ul>
+          <li><strong>Suite arithmético-géométrique un+1 = a un + b :</strong> Poser <code>vn = un − α</code> où <code>α = b/(1−a)</code> est le point fixe ⇒ <code>(vn)</code> est géométrique de raison <code>a</code> .</li>
+          <li><strong>Convergence :</strong> Si <code>−1 &lt; q &lt; 1</code> , <code>lim qn = 0</code> . Toute suite croissante majorée (ou décroissante minorée) converge.</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="primitives-calcul-integral">
+        <h2>Primitives &amp; Calcul Intégral</h2>
+        <ul>
+          <li><strong>Primitives usuelles :</strong> <code>u&#x27;/u → ln|u|</code> ; <code>u&#x27; eu → eu</code> ; <code>u&#x27; un → un+1/(n+1)</code> .</li>
+          <li><code>b u&#x27; v = [u v]a</code></li>
+          <li><code>b − ∫a</code></li>
+          <li><code>b u v&#x27;</code> .</li>
+          <li><strong>Intégration par parties (IPP) :</strong> <code>∫a</code></li>
+          <li><code>b f(x) dx</code> .</li>
+          <li><strong>Valeur moyenne sur [a, b] :</strong> <code>μ = [1 / (b − a)] ∫a</code></li>
+          <li><code>b [f(x) − g(x)] dx</code> (en u.a.).</li>
+          <li><strong>Aire :</strong> Si <code>f(x) ≥ g(x)</code> sur <code>[a, b]</code> , l&#x27;aire entre Cf et Cg est <code>∫a</code></li>
+        </ul>
+      </section>
+      <nav class="pager" aria-label="Navigation"></nav>
+    </main>
+  </div>
+
+  <button class="toc-fab" type="button" aria-label="Sommaire">☰</button>
+  <button class="icon-btn to-top" type="button" aria-label="Haut">↑</button>
+
+  <footer class="footer">
+    <div class="container">
+      <a href="../../index.html#eco">← Retour à ma section</a>
+      <div class="footer-meta"><a class="footer-contact" href="mailto:yassinemami41@gmail.com">📧 yassinemami41@gmail.com</a><span class="copyright">© Joyboy</span></div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/catalog.js"></script>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

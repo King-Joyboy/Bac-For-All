@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maths — Analyse — Bac Informatique</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem("bac-theme"))||"light"}catch(e){}</script>
+</head>
+<body data-root="../../" data-section="info" data-subject="info-analyse" style="--accent:#7c3aed">
+
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="../../index.html#info">
+        <span class="brand-badge">🎓</span>
+        <span>Bac Pour Tous<span class="brand-sub">Bac Informatique</span></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-pill" href="../../index.html#info">Accueil</a>
+        <div class="dropdown">
+          <button class="nav-btn nav-pill" type="button" data-dropdown-toggle>📚 Matières ▾</button>
+          <div class="dropdown-menu" data-subjects-menu></div>
+        </div>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Theme">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <div class="progress-bar"></div>
+
+  <section class="subject-hero">
+    <div class="container">
+      <nav class="crumbs"><a href="../../index.html">Accueil</a> › <a href="../../index.html#info">Bac Informatique</a> › <span>Maths — Analyse</span></nav>
+      <span class="chip">💻 Bac Informatique</span>
+      <h1><span>📈</span> Maths — Analyse</h1>
+      <p class="subtitle">Limites, continuité, dérivabilité, suites réelles, logarithme népérien, exponentielle et calcul intégral.</p>
+      <div class="meta-row">
+        <span class="chip neutral" data-chapcount></span>
+        <span class="chip neutral" data-readtime></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container layout">
+    <aside class="toc" aria-label="Sommaire"></aside>
+    <main class="content">
+<!-- 1. Limites & Continuité -->
+      <section class="chapter" id="limites">
+        <h2>Limites, continuité et branches infinies</h2>
+        <ul>
+          <li><strong>Continuité en \(x_0\)</strong> : \(f\) est continue en \(x_0 \iff \lim\limits_{x \to x_0^+} f(x) = \lim\limits_{x \to x_0^-} f(x) = f(x_0)\).</li>
+          <li><strong>Théorème des Valeurs Intermédiaires (TVI)</strong> : Si \(f\) est continue sur \([a, b]\) et \(f(a)\cdot f(b) < 0\), alors \(f(x) = 0\) admet au moins une solution \(\alpha \in ]a, b[\). Si de plus \(f\) est <em>strictement monotone</em> sur \([a, b]\), la solution \(\alpha\) est <strong>unique</strong>.</li>
+          <li><strong>Théorème de la bijection</strong> : Si \(f\) est continue et strictement monotone sur un intervalle \(I\), elle réalise une bijection de \(I\) sur \(J = f(I)\), et sa réciproque \(f^{-1}\) est continue et de même sens de variation sur \(J\).</li>
+          <li><strong>Théorème des gendarmes</strong> : Si \(g(x) \le f(x) \le h(x)\) et \(\lim g = \lim h = \ell\), alors \(\lim f = \ell\).</li>
+        </ul>
+
+        <h3>Branches infinies et asymptotes</h3>
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>Limite calculée</th><th>Interprétation géométrique pour \(\mathcal{C}_f\)</th></tr></thead>
+            <tbody>
+              <tr><td>\(\lim\limits_{x \to a} f(x) = \pm\infty\)</td><td>Asymptote verticale d'équation \(x = a\).</td></tr>
+              <tr><td>\(\lim\limits_{x \to \pm\infty} f(x) = b\)</td><td>Asymptote horizontale d'équation \(y = b\) au voisinage de \(\pm\infty\).</td></tr>
+              <tr><td>\(\lim\limits_{x \to \pm\infty} [f(x) - (ax + b)] = 0\)</td><td>Asymptote oblique d'équation \(y = ax + b\) au voisinage de \(\pm\infty\).</td></tr>
+              <tr><td>\(\lim\limits_{x \to \pm\infty} \dfrac{f(x)}{x} = 0\)</td><td>Branche parabolique de direction l'axe des abscisses \((Ox)\).</td></tr>
+              <tr><td>\(\lim\limits_{x \to \pm\infty} \dfrac{f(x)}{x} = \pm\infty\)</td><td>Branche parabolique de direction l'axe des ordonnées \((Oy)\).</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 2. Dérivabilité -->
+      <section class="chapter" id="derivabilite">
+        <h2>Dérivabilité et étude de fonctions</h2>
+        <div class="formula-grid">
+          <div class="formula"><span class="label">Nombre dérivé en \(x_0\)</span>$$f'(x_0) = \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0}$$</div>
+          <div class="formula"><span class="label">Tangente en \(A(x_0, f(x_0))\)</span>$$y = f'(x_0)(x - x_0) + f(x_0)$$</div>
+        </div>
+        <ul>
+          <li><strong>Point d'inflexion</strong> : \(\mathcal{C}_f\) admet un point d'inflexion en \(x_0\) si \(f''(x)\) s'annule en changeant de signe en \(x_0\).</li>
+          <li><strong>Théorème des Accroissements Finis (TAF)</strong> : Si \(f\) est continue sur \([a, b]\) et dérivable sur \(]a, b[\), il existe \(c \in ]a, b[\) tel que \(f(b) - f(a) = f'(c)(b - a)\).</li>
+          <li><strong>Inégalité des Accroissements Finis (IAF)</strong> : Si \(|f'(x)| \le k\) sur \(I\), alors \(\forall a, b \in I,\; |f(b) - f(a)| \le k\,|b - a|\).</li>
+        </ul>
+
+        <h3>Tableau des dérivées usuelles</h3>
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>Fonction</th><th>Dérivée</th><th>Fonction</th><th>Dérivée</th></tr></thead>
+            <tbody>
+              <tr><td>\(u + v\)</td><td>\(u' + v'\)</td><td>\(u \cdot v\)</td><td>\(u'v + uv'\)</td></tr>
+              <tr><td>\(\dfrac{u}{v}\)</td><td>\(\dfrac{u'v - uv'}{v^2}\)</td><td>\(u^n\)</td><td>\(n\,u'\,u^{n-1}\)</td></tr>
+              <tr><td>\(\sqrt{u}\)</td><td>\(\dfrac{u'}{2\sqrt{u}}\)</td><td>\(f(u(x))\)</td><td>\(u'(x)\cdot f'(u(x))\)</td></tr>
+              <tr><td>\(\ln(u)\)</td><td>\(\dfrac{u'}{u}\)</td><td>\(e^u\)</td><td>\(u'e^u\)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. Suites -->
+      <section class="chapter" id="suites">
+        <h2>Suites réelles</h2>
+        <div class="compare">
+          <div>
+            <h4>➕ Suite arithmétique (\(u_{n+1} = u_n + r\))</h4>
+            <p>Terme général : \(u_n = u_0 + nr = u_p + (n-p)r\)</p>
+            <p>Somme : \(\displaystyle S = \sum_{k=p}^{n} u_k = \frac{(n - p + 1)(u_p + u_n)}{2}\)</p>
+          </div>
+          <div>
+            <h4>✖️ Suite géométrique (\(u_{n+1} = q \cdot u_n\))</h4>
+            <p>Terme général : \(u_n = u_0 q^n = u_p q^{n-p}\)</p>
+            <p>Somme (\(q \neq 1\)) : \(\displaystyle S = \sum_{k=p}^{n} u_k = u_p \cdot \frac{1 - q^{n-p+1}}{1 - q}\)</p>
+          </div>
+        </div>
+        <ul>
+          <li><strong>Limite de \(q^n\)</strong> : si \(-1 < q < 1\), \(\lim q^n = 0\) ; si \(q > 1\), \(\lim q^n = +\infty\) ; si \(q \le -1\), pas de limite.</li>
+          <li><strong>Convergence monotone</strong> : toute suite croissante et majorée (ou décroissante et minorée) est convergente.</li>
+          <li><strong>Suite récurrente \(u_{n+1} = f(u_n)\)</strong> : si \((u_n)\) converge vers \(\ell\) et \(f\) est continue en \(\ell\), alors \(f(\ell) = \ell\).</li>
+          <li><strong>Suites adjacentes</strong> : \((u_n)\) croissante, \((v_n)\) décroissante et \(\lim(v_n - u_n) = 0 \implies (u_n)\) et \((v_n)\) convergent vers la même limite \(\ell\).</li>
+        </ul>
+      </section>
+
+      <!-- 4. Logarithme -->
+      <section class="chapter" id="ln">
+        <h2>Fonction logarithme népérien (\(\ln\))</h2>
+        <p class="intro">Définie sur \(]0, +\infty[\) comme la primitive de \(x \mapsto \dfrac{1}{x}\) qui s'annule en \(1\) (\(\ln(1) = 0\), \(\ln(e) = 1\)).</p>
+
+        <div class="formula"><span class="label">Propriétés algébriques (\(a > 0, b > 0\))</span>$$\ln(ab) = \ln a + \ln b \quad;\quad \ln\!\left(\frac{a}{b}\right) = \ln a - \ln b \quad;\quad \ln\!\left(\frac{1}{a}\right) = -\ln a \quad;\quad \ln(a^n) = n\ln a$$</div>
+
+        <div class="formula"><span class="label">Limites usuelles et croissances comparées (\(n \in \mathbb{N}^*\))</span>$$\lim_{x \to 0^+} \ln x = -\infty \quad;\quad \lim_{x \to +\infty} \ln x = +\infty \quad;\quad \lim_{x \to +\infty} \frac{\ln x}{x^n} = 0$$
+        $$\lim_{x \to 0^+} x^n \ln x = 0 \quad;\quad \lim_{x \to 0} \frac{\ln(1+x)}{x} = 1 \quad;\quad \lim_{x \to 1} \frac{\ln x}{x - 1} = 1$$</div>
+      </section>
+
+      <!-- 5. Exponentielle -->
+      <section class="chapter" id="exp">
+        <h2>Fonction exponentielle (\(\exp\))</h2>
+        <p class="intro">Bijection réciproque de \(\ln\), définie sur \(\mathbb{R}\) à valeurs dans \(]0, +\infty[\) (\(e^x > 0\) pour tout \(x \in \mathbb{R}\), \(e^0 = 1\)).</p>
+
+        <div class="formula"><span class="label">Propriétés algébriques</span>$$e^{a+b} = e^a \cdot e^b \quad;\quad e^{a-b} = \frac{e^a}{e^b} \quad;\quad e^{-a} = \frac{1}{e^a} \quad;\quad (e^a)^n = e^{na} \quad;\quad y = e^x \iff x = \ln y$$</div>
+
+        <div class="formula"><span class="label">Limites usuelles et croissances comparées (\(n \in \mathbb{N}^*\))</span>$$\lim_{x \to -\infty} e^x = 0 \quad;\quad \lim_{x \to +\infty} e^x = +\infty \quad;\quad \lim_{x \to +\infty} \frac{e^x}{x^n} = +\infty$$
+        $$\lim_{x \to -\infty} x^n e^x = 0 \quad;\quad \lim_{x \to 0} \frac{e^x - 1}{x} = 1$$</div>
+      </section>
+
+      <!-- 6. Intégrales -->
+      <section class="chapter" id="integrales">
+        <h2>Primitives et calcul intégral</h2>
+        <div class="formula-grid">
+          <div class="formula"><span class="label">Théorème fondamental</span>$$\int_a^b f(x)\,dx = \Big[F(x)\Big]_a^b = F(b) - F(a)$$</div>
+          <div class="formula"><span class="label">Relation de Chasles</span>$$\int_a^c f = \int_a^b f + \int_b^c f \quad;\quad \int_b^a f = -\int_a^b f$$</div>
+        </div>
+        <div class="formula"><span class="label">Intégration par parties (IPP)</span>$$\int_a^b u'(x)v(x)\,dx = \Big[u(x)v(x)\Big]_a^b - \int_a^b u(x)v'(x)\,dx$$</div>
+        <div class="formula-grid">
+          <div class="formula"><span class="label">Aire entre \(\mathcal{C}_f\) et \(\mathcal{C}_g\) (\(a < b\))</span>$$\mathcal{A} = \int_a^b |f(x) - g(x)|\,dx$$</div>
+          <div class="formula"><span class="label">Valeur moyenne sur \([a, b]\)</span>$$\mu = \frac{1}{b - a}\int_a^b f(x)\,dx$$</div>
+        </div>
+
+        <h3>Tableau des primitives usuelles</h3>
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>Fonction \(f\)</th><th>Primitive \(F\)</th><th>Fonction \(f\)</th><th>Primitive \(F\)</th></tr></thead>
+            <tbody>
+              <tr><td>\(u' u^n \;(n \neq -1)\)</td><td>\(\dfrac{u^{n+1}}{n+1}\)</td><td>\(\dfrac{u'}{u}\)</td><td>\(\ln|u|\)</td></tr>
+              <tr><td>\(\dfrac{u'}{\sqrt{u}}\)</td><td>\(2\sqrt{u}\)</td><td>\(u' e^u\)</td><td>\(e^u\)</td></tr>
+              <tr><td>\(\dfrac{u'}{u^2}\)</td><td>\(-\dfrac{1}{u}\)</td><td>\(\cos(ax + b)\)</td><td>\(\dfrac{1}{a}\sin(ax + b)\)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <nav class="pager" aria-label="Navigation"></nav>
+    </main>
+  </div>
+
+  <button class="toc-fab" type="button" aria-label="Sommaire">☰</button>
+  <button class="icon-btn to-top" type="button" aria-label="Haut">↑</button>
+
+  <footer class="footer">
+    <div class="container">
+      <a href="../../index.html#info">← Retour à ma section</a>
+      <div class="footer-meta"><a class="footer-contact" href="mailto:yassinemami41@gmail.com">📧 yassinemami41@gmail.com</a><span class="copyright">© Joyboy</span></div>
+    </div>
+  </footer>
+
+  <script src="../../assets/vendor/katex/katex.min.js"></script>
+  <script src="../../assets/vendor/katex/auto-render.min.js"></script>
+  <script src="../../assets/js/catalog.js"></script>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

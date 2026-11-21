@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Physique — Bac Informatique</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem("bac-theme"))||"light"}catch(e){}</script>
+</head>
+<body data-root="../../" data-section="info" data-subject="info-physique" style="--accent:#0284c7">
+
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="../../index.html#info">
+        <span class="brand-badge">🎓</span>
+        <span>Bac Pour Tous<span class="brand-sub">Bac Informatique</span></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-pill" href="../../index.html#info">Accueil</a>
+        <div class="dropdown">
+          <button class="nav-btn nav-pill" type="button" data-dropdown-toggle>📚 Matières ▾</button>
+          <div class="dropdown-menu" data-subjects-menu></div>
+        </div>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Theme">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <div class="progress-bar"></div>
+
+  <section class="subject-hero">
+    <div class="container">
+      <nav class="crumbs"><a href="../../index.html">Accueil</a> › <a href="../../index.html#info">Bac Informatique</a> › <span>Physique</span></nav>
+      <span class="chip">💻 Bac Informatique</span>
+      <h1><span>⚡</span> Physique</h1>
+      <p class="subtitle">Formules essentielles, équations différentielles, courbes types et astuces clés pour le Baccalauréat.</p>
+      <div class="meta-row">
+        <span class="chip neutral" data-chapcount></span>
+        <span class="chip neutral" data-readtime></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container layout">
+    <aside class="toc" aria-label="Sommaire"></aside>
+    <main class="content">
+<!-- ===================== 1. RC ===================== -->
+      <section class="chapter" id="rc">
+        <h2>Le condensateur et le dipôle RC</h2>
+        <p class="intro">Un condensateur est formé de deux armatures conductrices séparées par un isolant. Il <strong>stocke des charges</strong> et donc de l'énergie électrique.</p>
+
+        <h3>Relations fondamentales</h3>
+        <div class="formula-grid">
+          <div class="formula"><span class="label">Charge</span>$$q = C\,u_C$$</div>
+          <div class="formula"><span class="label">Intensité</span>$$i = \frac{dq}{dt} = C\,\frac{du_C}{dt}$$</div>
+          <div class="formula"><span class="label">Énergie électrique</span>$$E_e = \tfrac12 C\,u_C^2 = \frac{q^2}{2C}$$</div>
+          <div class="formula"><span class="label">Constante de temps</span>$$\tau = R\,C \quad (\text{en s})$$</div>
+        </div>
+
+        <h3>Charge et décharge</h3>
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>Régime</th><th>Équation différentielle</th><th>Solution \(u_C(t)\)</th><th>Courant \(i(t)\)</th></tr></thead>
+            <tbody>
+              <tr><td>Charge (sous tension \(E\))</td><td>\(\tau\,\dfrac{du_C}{dt} + u_C = E\)</td><td>\(u_C = E\left(1 - e^{-t/\tau}\right)\)</td><td>\(i = \dfrac{E}{R}\,e^{-t/\tau}\)</td></tr>
+              <tr><td>Décharge (dans \(R\))</td><td>\(\tau\,\dfrac{du_C}{dt} + u_C = 0\)</td><td>\(u_C = E\,e^{-t/\tau}\)</td><td>\(i = -\dfrac{E}{R}\,e^{-t/\tau}\)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="fig">
+          <svg viewBox="0 0 520 260" role="img" aria-label="Courbes de charge et de décharge d'un condensateur">
+            <line class="grid" x1="50" y1="60" x2="500" y2="60"/>
+            <line class="dash" x1="110" y1="220" x2="110" y2="60"/>
+            <line class="dash" x1="50" y1="118.9" x2="110" y2="118.9"/>
+            <line class="dash" x1="50" y1="161.1" x2="110" y2="161.1"/>
+            <line class="dash" x1="350" y1="220" x2="350" y2="40"/>
+            <path class="dash" d="M50,220 L110,60" style="stroke:var(--accent)"/>
+            <path class="curve" d="M50.0,220.0 L55.5,206.0 L61.0,193.3 L66.4,181.7 L71.9,171.1 L77.4,161.4 L82.8,152.5 L88.3,144.5 L93.8,137.1 L99.3,130.4 L104.8,124.2 L110.2,118.6 L115.7,113.5 L121.2,108.9 L126.7,104.6 L132.1,100.7 L137.6,97.2 L143.1,93.9 L148.6,91.0 L154.0,88.3 L159.5,85.8 L165.0,83.5 L170.4,81.5 L175.9,79.6 L181.4,77.9 L186.9,76.3 L192.3,74.9 L197.8,73.6 L203.3,72.4 L208.8,71.3 L214.2,70.4 L219.7,69.5 L225.2,68.6 L230.7,67.9 L236.2,67.2 L241.6,66.6 L247.1,66.0 L252.6,65.5 L258.0,65.0 L263.5,64.6 L269.0,64.2 L274.5,63.8 L279.9,63.5 L285.4,63.2 L290.9,62.9 L296.4,62.6 L301.9,62.4 L307.3,62.2 L312.8,62.0 L318.3,61.8 L323.8,61.7 L329.2,61.5 L334.7,61.4 L340.2,61.3 L345.7,61.2 L351.1,61.1 L356.6,61.0 L362.1,60.9 L367.5,60.8 L373.0,60.7 L378.5,60.7 L384.0,60.6 L389.4,60.6 L394.9,60.5 L400.4,60.5 L405.9,60.4 L411.4,60.4 L416.8,60.4 L422.3,60.3 L427.8,60.3 L433.2,60.3 L438.7,60.2 L444.2,60.2 L449.7,60.2 L455.1,60.2 L460.6,60.2 L466.1,60.2 L471.6,60.1 L477.0,60.1 L482.5,60.1 L488.0,60.1"/>
+            <path class="curve2" d="M50.0,60.0 L55.5,74.0 L61.0,86.7 L66.4,98.3 L71.9,108.9 L77.4,118.6 L82.8,127.5 L88.3,135.5 L93.8,142.9 L99.3,149.6 L104.8,155.8 L110.2,161.4 L115.7,166.5 L121.2,171.1 L126.7,175.4 L132.1,179.3 L137.6,182.8 L143.1,186.1 L148.6,189.0 L154.0,191.7 L159.5,194.2 L165.0,196.5 L170.4,198.5 L175.9,200.4 L181.4,202.1 L186.9,203.7 L192.3,205.1 L197.8,206.4 L203.3,207.6 L208.8,208.7 L214.2,209.6 L219.7,210.5 L225.2,211.4 L230.7,212.1 L236.2,212.8 L241.6,213.4 L247.1,214.0 L252.6,214.5 L258.0,215.0 L263.5,215.4 L269.0,215.8 L274.5,216.2 L279.9,216.5 L285.4,216.8 L290.9,217.1 L296.4,217.4 L301.9,217.6 L307.3,217.8 L312.8,218.0 L318.3,218.2 L323.8,218.3 L329.2,218.5 L334.7,218.6 L340.2,218.7 L345.7,218.8 L351.1,218.9 L356.6,219.0 L362.1,219.1 L367.5,219.2 L373.0,219.3 L378.5,219.3 L384.0,219.4 L389.4,219.4 L394.9,219.5 L400.4,219.5 L405.9,219.6 L411.4,219.6 L416.8,219.6 L422.3,219.7 L427.8,219.7 L433.2,219.7 L438.7,219.8 L444.2,219.8 L449.7,219.8 L455.1,219.8 L460.6,219.8 L466.1,219.8 L471.6,219.9 L477.0,219.9 L482.5,219.9 L488.0,219.9"/>
+            <path class="axis" d="M50,235 V25 M40,220 H505"/>
+            <path class="axis" d="M45,32 L50,22 L55,32 M495,215 L505,220 L495,225"/>
+            <text x="20" y="64" font-size="13">E</text>
+            <text x="8" y="123" font-size="12">0,63E</text>
+            <text x="8" y="165" font-size="12">0,37E</text>
+            <text x="104" y="240" font-size="13">τ</text>
+            <text x="340" y="240" font-size="13">5τ</text>
+            <text x="490" y="242" font-size="13">t</text>
+            <text x="58" y="30" font-size="13">u<tspan dy="3" font-size="9">C</tspan></text>
+            <text x="380" y="52" font-size="13" style="fill:var(--accent)">charge</text>
+            <text x="380" y="208" font-size="13" style="fill:var(--orange)">décharge</text>
+            <text x="360" y="100" font-size="11">régime permanent</text>
+          </svg>
+          <figcaption>Charge (bleu) et décharge (orange) : à \(t=\tau\), \(u_C\) atteint 63 % de \(E\) (charge) ou retombe à 37 % de \(E\) (décharge).</figcaption>
+        </figure>
+
+        <div class="callout info">
+          <strong>Déterminer τ graphiquement</strong>
+          <ul>
+            <li>Abscisse du point d'intersection de la <strong>tangente à l'origine</strong> avec l'asymptote \(u_C = E\) (ou avec l'axe des temps en décharge).</li>
+            <li>Instant où \(u_C(\tau) = 0{,}63\,E\) en charge, ou \(u_C(\tau) = 0{,}37\,E\) en décharge.</li>
+          </ul>
+        </div>
+        <div class="callout bac">
+          <strong>Astuce Bac</strong>
+          Le régime permanent est pratiquement atteint au bout de \(5\tau\) (\(u_C \approx 0{,}99\,E\)). Plus \(\tau\) est grand, plus la charge est lente.
+        </div>
+      </section>
+
+      <!-- ===================== 2. RL ===================== -->
+      <section class="chapter" id="rl">
+        <h2>La bobine et le dipôle RL</h2>
+        <p class="intro">Une bobine d'inductance \(L\) et de résistance interne \(r\) <strong>s'oppose aux variations du courant</strong> qui la traverse : c'est le phénomène d'auto-induction.</p>
+
+        <div class="formula-grid">
+          <div class="formula"><span class="label">Tension aux bornes</span>$$u_B = r\,i + L\,\frac{di}{dt}$$</div>
+          <div class="formula"><span class="label">Énergie magnétique</span>$$E_m = \tfrac12 L\,i^2$$</div>
+          <div class="formula"><span class="label">Constante de temps</span>$$\tau = \frac{L}{R_t},\quad R_t = R + r$$</div>
+          <div class="formula"><span class="label">Régime permanent</span>$$I_0 = \frac{E}{R + r}$$</div>
+        </div>
+        <p>Pour une bobine <strong>idéale</strong> (\(r = 0\)) : \(u_B = L\,\dfrac{di}{dt}\).</p>
+
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>Régime</th><th>Équation différentielle</th><th>Solution \(i(t)\)</th></tr></thead>
+            <tbody>
+              <tr><td>Établissement du courant</td><td>\(\tau\,\dfrac{di}{dt} + i = I_0\)</td><td>\(i = I_0\left(1 - e^{-t/\tau}\right)\)</td></tr>
+              <tr><td>Rupture du courant</td><td>\(\tau\,\dfrac{di}{dt} + i = 0\)</td><td>\(i = I_0\,e^{-t/\tau}\)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="compare">
+          <div><h4>🔌 Condensateur</h4><p>Assure la <strong>continuité de la tension</strong> \(u_C\). En régime permanent, il se comporte comme un <strong>interrupteur ouvert</strong> (\(i = 0\)).</p></div>
+          <div><h4>🌀 Bobine</h4><p>Assure la <strong>continuité du courant</strong> \(i\). En régime permanent, elle se comporte comme un <strong>simple résistor</strong> de résistance \(r\).</p></div>
+        </div>
+
+        <div class="callout bac">
+          <strong>Astuce Bac</strong>
+          À \(t = 0\) (établissement) : \(i(0) = 0\) — la bobine retarde l'établissement du courant. En régime permanent (\(t \to \infty\)) : \(\dfrac{di}{dt} = 0\), donc \(u_B = r\,I_0\). Les courbes de \(i(t)\) ont exactement la même forme que celles de \(u_C(t)\) du dipôle RC.
+        </div>
+      </section>
+
+      <!-- ===================== 3. RLC libre ===================== -->
+      <section class="chapter" id="rlc-libre">
+        <h2>Oscillations électriques libres (RLC série)</h2>
+        <p class="intro">Un condensateur chargé se décharge dans une bobine : l'énergie s'échange entre \(C\) et \(L\), ce qui produit des oscillations.</p>
+
+        <div class="formula"><span class="label">Équation différentielle en \(u_C\)</span>$$LC\,\frac{d^2u_C}{dt^2} + R_t C\,\frac{du_C}{dt} + u_C = 0 \qquad (R_t = R + r)$$</div>
+
+        <h3>Cas idéal : circuit LC (non amorti, \(R_t = 0\))</h3>
+        <div class="formula-grid">
+          <div class="formula"><span class="label">Équation</span>$$\frac{d^2u_C}{dt^2} + \omega_0^2\,u_C = 0$$</div>
+          <div class="formula"><span class="label">Pulsation propre</span>$$\omega_0 = \frac{1}{\sqrt{LC}}$$</div>
+          <div class="formula"><span class="label">Période propre</span>$$T_0 = 2\pi\sqrt{LC}$$</div>
+          <div class="formula"><span class="label">Fréquence propre</span>$$N_0 = \frac{1}{2\pi\sqrt{LC}}$$</div>
+        </div>
+        <p>Solution sinusoïdale : \(u_C(t) = U_{Cm}\sin(\omega_0 t + \varphi_{u_C})\). L'énergie totale se <strong>conserve</strong> :</p>
+        <div class="formula">$$E = E_e + E_m = \tfrac12 C\,u_C^2 + \tfrac12 L\,i^2 = \text{constante} = \tfrac12 C\,U_{Cm}^2 = \tfrac12 L\,I_m^2$$</div>
+
+        <h3>Cas réel : circuit RLC (amorti, \(R_t \neq 0\))</h3>
+        <figure class="fig">
+          <svg viewBox="0 0 520 260" role="img" aria-label="Oscillations pseudo-périodiques amorties">
+            <path class="dash" d="M50.0,40.0 L61.0,44.8 L72.0,49.4 L83.0,53.7 L94.0,57.8 L105.0,61.6 L116.0,65.3 L127.0,68.8 L138.0,72.0 L149.0,75.1 L160.0,78.1 L171.0,80.9 L182.0,83.5 L193.0,86.0 L204.0,88.3 L215.0,90.6 L226.0,92.7 L237.0,94.7 L248.0,96.6 L259.0,98.3 L270.0,100.0 L281.0,101.6 L292.0,103.2 L303.0,104.6 L314.0,106.0 L325.0,107.2 L336.0,108.5 L347.0,109.6 L358.0,110.7 L369.0,111.7 L380.0,112.7 L391.0,113.6 L402.0,114.5 L413.0,115.3 L424.0,116.1 L435.0,116.9 L446.0,117.6 L457.0,118.2 L468.0,118.9 L479.0,119.5 L490.0,120.0"/>
+            <path class="dash" d="M50.0,220.0 L61.0,215.2 L72.0,210.6 L83.0,206.3 L94.0,202.2 L105.0,198.4 L116.0,194.7 L127.0,191.2 L138.0,188.0 L149.0,184.9 L160.0,181.9 L171.0,179.1 L182.0,176.5 L193.0,174.0 L204.0,171.7 L215.0,169.4 L226.0,167.3 L237.0,165.3 L248.0,163.4 L259.0,161.7 L270.0,160.0 L281.0,158.4 L292.0,156.8 L303.0,155.4 L314.0,154.0 L325.0,152.8 L336.0,151.5 L347.0,150.4 L358.0,149.3 L369.0,148.3 L380.0,147.3 L391.0,146.4 L402.0,145.5 L413.0,144.7 L424.0,143.9 L435.0,143.1 L446.0,142.4 L457.0,141.8 L468.0,141.1 L479.0,140.5 L490.0,140.0"/>
+            <path class="curve" d="M50.0,40.0 L51.5,41.1 L52.9,42.9 L54.4,45.5 L55.9,48.9 L57.3,52.9 L58.8,57.5 L60.3,62.8 L61.7,68.6 L63.2,74.8 L64.7,81.5 L66.1,88.5 L67.6,95.8 L69.1,103.2 L70.5,110.9 L72.0,118.5 L73.5,126.2 L74.9,133.8 L76.4,141.2 L77.9,148.5 L79.3,155.4 L80.8,162.1 L82.3,168.3 L83.7,174.1 L85.2,179.4 L86.7,184.2 L88.1,188.5 L89.6,192.1 L91.1,195.1 L92.5,197.5 L94.0,199.3 L95.5,200.4 L96.9,200.9 L98.4,200.7 L99.9,199.8 L101.3,198.4 L102.8,196.3 L104.3,193.7 L105.7,190.5 L107.2,186.9 L108.7,182.8 L110.1,178.2 L111.6,173.3 L113.1,168.1 L114.5,162.6 L116.0,156.9 L117.5,151.0 L118.9,145.0 L120.4,139.0 L121.9,133.0 L123.3,127.0 L124.8,121.2 L126.3,115.5 L127.7,110.0 L129.2,104.8 L130.7,99.9 L132.1,95.4 L133.6,91.2 L135.1,87.4 L136.5,84.1 L138.0,81.2 L139.5,78.9 L140.9,77.0 L142.4,75.6 L143.9,74.7 L145.3,74.4 L146.8,74.5 L148.3,75.2 L149.7,76.3 L151.2,77.9 L152.7,80.0 L154.1,82.5 L155.6,85.3 L157.1,88.6 L158.5,92.1 L160.0,96.0 L161.5,100.1 L162.9,104.4 L164.4,108.9 L165.9,113.5 L167.3,118.2 L168.8,122.9 L170.3,127.7 L171.7,132.3 L173.2,136.9 L174.7,141.4 L176.1,145.7 L177.6,149.8 L179.1,153.6 L180.5,157.2 L182.0,160.5 L183.5,163.4 L184.9,166.0 L186.4,168.3 L187.9,170.2 L189.3,171.6 L190.8,172.7 L192.3,173.4 L193.7,173.7 L195.2,173.5 L196.7,173.0 L198.1,172.1 L199.6,170.9 L201.1,169.3 L202.5,167.3 L204.0,165.1 L205.5,162.5 L206.9,159.7 L208.4,156.7 L209.9,153.5 L211.3,150.1 L212.8,146.6 L214.3,142.9 L215.7,139.3 L217.2,135.6 L218.7,131.8 L220.1,128.2 L221.6,124.6 L223.1,121.1 L224.5,117.7 L226.0,114.5 L227.5,111.5 L228.9,108.7 L230.4,106.1 L231.9,103.8 L233.3,101.7 L234.8,99.9 L236.3,98.5 L237.7,97.3 L239.2,96.5 L240.7,95.9 L242.1,95.7 L243.6,95.8 L245.1,96.2 L246.5,96.9 L248.0,97.9 L249.5,99.2 L250.9,100.7 L252.4,102.5 L253.9,104.5 L255.3,106.7 L256.8,109.0 L258.3,111.6 L259.7,114.2 L261.2,117.0 L262.7,119.8 L264.1,122.7 L265.6,125.6 L267.1,128.6 L268.5,131.4 L270.0,134.3 L271.5,137.0 L272.9,139.7 L274.4,142.2 L275.9,144.5 L277.3,146.8 L278.8,148.8 L280.3,150.6 L281.7,152.2 L283.2,153.6 L284.7,154.7 L286.1,155.7 L287.6,156.3 L289.1,156.7 L290.5,156.9 L292.0,156.8 L293.5,156.5 L294.9,156.0 L296.4,155.2 L297.9,154.2 L299.3,153.0 L300.8,151.6 L302.3,150.0 L303.7,148.3 L305.2,146.5 L306.7,144.5 L308.1,142.4 L309.6,140.2 L311.1,138.0 L312.5,135.7 L314.0,133.4 L315.5,131.1 L316.9,128.9 L318.4,126.7 L319.9,124.5 L321.3,122.4 L322.8,120.4 L324.3,118.6 L325.7,116.8 L327.2,115.3 L328.7,113.8 L330.1,112.6 L331.6,111.5 L333.1,110.6 L334.5,109.9 L336.0,109.3 L337.5,109.0 L338.9,108.9 L340.4,108.9 L341.9,109.2 L343.3,109.6 L344.8,110.2 L346.3,111.0 L347.7,111.9 L349.2,113.0 L350.7,114.3 L352.1,115.6 L353.6,117.1 L355.1,118.6 L356.5,120.3 L358.0,122.0 L359.5,123.7 L360.9,125.5 L362.4,127.3 L363.9,129.1 L365.3,130.9 L366.8,132.6 L368.3,134.3 L369.7,136.0 L371.2,137.5 L372.7,139.0 L374.1,140.3 L375.6,141.6 L377.1,142.7 L378.5,143.7 L380.0,144.5 L381.5,145.3 L382.9,145.8 L384.4,146.2 L385.9,146.5 L387.3,146.6 L388.8,146.5 L390.3,146.3 L391.7,146.0 L393.2,145.5 L394.7,144.9 L396.1,144.2 L397.6,143.3 L399.1,142.4 L400.5,141.3 L402.0,140.1 L403.5,138.9 L404.9,137.6 L406.4,136.3 L407.9,134.9 L409.3,133.5 L410.8,132.1 L412.3,130.7 L413.7,129.3 L415.2,127.9 L416.7,126.6 L418.1,125.3 L419.6,124.1 L421.1,123.0 L422.5,121.9 L424.0,120.9 L425.5,120.0 L426.9,119.3 L428.4,118.6 L429.9,118.0 L431.3,117.6 L432.8,117.3 L434.3,117.1 L435.7,117.0 L437.2,117.0 L438.7,117.2 L440.1,117.4 L441.6,117.8 L443.1,118.3 L444.5,118.9 L446.0,119.5 L447.5,120.3 L448.9,121.1 L450.4,122.0 L451.9,123.0 L453.3,124.0 L454.8,125.1 L456.3,126.1 L457.7,127.2 L459.2,128.3 L460.7,129.5 L462.1,130.5 L463.6,131.6 L465.1,132.7 L466.5,133.7 L468.0,134.6 L469.5,135.5 L470.9,136.4 L472.4,137.1 L473.9,137.8 L475.3,138.4 L476.8,139.0 L478.3,139.4 L479.7,139.7 L481.2,140.0 L482.7,140.2 L484.1,140.2 L485.6,140.2 L487.1,140.1 L488.5,139.9 L490.0,139.6"/>
+            <path class="axis" d="M50,245 V20 M40,130 H505"/>
+            <path class="axis" d="M45,28 L50,18 L55,28 M495,125 L505,130 L495,135"/>
+            <line class="dash" x1="50" y1="30" x2="50" y2="30"/>
+            <path d="M50,236 H146.8" stroke="var(--orange)" stroke-width="2" marker-end="url(#a)" marker-start="url(#a)"/>
+            <defs><marker id="a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10z" fill="var(--orange)"/></marker></defs>
+            <text x="82" y="232" font-size="13" style="fill:var(--orange)">T</text>
+            <text x="490" y="150" font-size="13">t</text>
+            <text x="58" y="26" font-size="13">u<tspan dy="3" font-size="9">C</tspan></text>
+            <text x="330" y="60" font-size="12">enveloppe exponentielle</text>
+          </svg>
+          <figcaption>Régime pseudo-périodique : l'amplitude diminue à cause de l'effet Joule ; la pseudo-période \(T \approx T_0\).</figcaption>
+        </figure>
+        <ul>
+          <li><strong>\(R_t\) faible</strong> : régime <strong>pseudo-périodique</strong> (pseudo-période \(T \approx T_0\)).</li>
+          <li><strong>\(R_t\) grande</strong> : régime <strong>apériodique</strong> (aucune oscillation).</li>
+          <li>Dissipation d'énergie par effet Joule : \(\dfrac{dE}{dt} = -R_t\,i^2 \le 0\) — l'énergie totale diminue.</li>
+        </ul>
+      </section>
+
+      <!-- ===================== 4. Forcées ===================== -->
+      <section class="chapter" id="rlc-force">
+        <h2>Oscillations électriques forcées (RLC sinusoïdal)</h2>
+        <p class="intro">Un GBF impose \(u(t) = U_m\sin(\omega t + \varphi_u)\) au circuit, qui est parcouru par \(i(t) = I_m\sin(\omega t + \varphi_i)\), avec \(\omega = 2\pi N\) (fréquence imposée par le GBF).</p>
+
+        <div class="formula-grid">
+          <div class="formula"><span class="label">Impédance</span>$$Z = \frac{U_m}{I_m} = \frac{U}{I} = \sqrt{R_t^2 + \left(L\omega - \frac{1}{C\omega}\right)^2}$$</div>
+          <div class="formula"><span class="label">Déphasage \(\Delta\varphi = \varphi_u - \varphi_i\)</span>$$\cos\Delta\varphi = \frac{R_t}{Z}, \quad \tan\Delta\varphi = \frac{L\omega - \frac{1}{C\omega}}{R_t}$$</div>
+        </div>
+
+        <div class="cards">
+          <div class="card"><h4><span class="e">🌀</span> Circuit inductif</h4><p>\(L\omega > \dfrac{1}{C\omega}\) ⟹ \(\Delta\varphi > 0\) : \(u\) est <strong>en avance</strong> sur \(i\).</p></div>
+          <div class="card"><h4><span class="e">🔋</span> Circuit capacitif</h4><p>\(L\omega < \dfrac{1}{C\omega}\) ⟹ \(\Delta\varphi < 0\) : \(u\) est <strong>en retard</strong> sur \(i\).</p></div>
+          <div class="card"><h4><span class="e">🎯</span> Circuit résistif</h4><p>\(L\omega = \dfrac{1}{C\omega}\) ⟹ \(\Delta\varphi = 0\) : \(u\) et \(i\) sont <strong>en phase</strong> (résonance).</p></div>
+        </div>
+
+        <h3>Résonance d'intensité (\(N = N_0\))</h3>
+        <figure class="fig">
+          <svg viewBox="0 0 520 260" role="img" aria-label="Courbes de résonance d'intensité">
+            <line class="dash" x1="270" y1="220" x2="270" y2="40"/>
+            <path class="curve" d="M61.0,211.5 L63.9,209.3 L66.7,207.0 L69.6,204.8 L72.4,202.6 L75.3,200.3 L78.2,198.1 L81.0,195.8 L83.9,193.5 L86.7,191.2 L89.6,188.9 L92.5,186.6 L95.3,184.2 L98.2,181.9 L101.0,179.5 L103.9,177.1 L106.8,174.7 L109.6,172.3 L112.5,169.8 L115.3,167.3 L118.2,164.9 L121.1,162.3 L123.9,159.8 L126.8,157.2 L129.6,154.6 L132.5,152.0 L135.4,149.4 L138.2,146.7 L141.1,144.0 L143.9,141.3 L146.8,138.6 L149.7,135.8 L152.5,133.0 L155.4,130.3 L158.2,127.4 L161.1,124.6 L164.0,121.8 L166.8,118.9 L169.7,116.1 L172.5,113.2 L175.4,110.3 L178.3,107.5 L181.1,104.6 L184.0,101.8 L186.8,98.9 L189.7,96.1 L192.6,93.3 L195.4,90.6 L198.3,87.9 L201.1,85.2 L204.0,82.6 L206.9,80.0 L209.7,77.6 L212.6,75.1 L215.4,72.8 L218.3,70.6 L221.2,68.4 L224.0,66.3 L226.9,64.4 L229.7,62.5 L232.6,60.8 L235.5,59.2 L238.3,57.7 L241.2,56.4 L244.0,55.1 L246.9,54.1 L249.8,53.1 L252.6,52.3 L255.5,51.6 L258.3,51.0 L261.2,50.6 L264.1,50.3 L266.9,50.1 L269.8,50.0 L272.6,50.0 L275.5,50.2 L278.4,50.5 L281.2,50.8 L284.1,51.3 L286.9,51.8 L289.8,52.5 L292.7,53.2 L295.5,54.0 L298.4,54.8 L301.2,55.7 L304.1,56.7 L307.0,57.7 L309.8,58.8 L312.7,59.9 L315.5,61.0 L318.4,62.2 L321.3,63.4 L324.1,64.6 L327.0,65.8 L329.8,67.1 L332.7,68.4 L335.6,69.6 L338.4,70.9 L341.3,72.2 L344.1,73.5 L347.0,74.8 L349.9,76.1 L352.7,77.4 L355.6,78.7 L358.4,80.0 L361.3,81.3 L364.2,82.5 L367.0,83.8 L369.9,85.1 L372.7,86.3 L375.6,87.5 L378.5,88.8 L381.3,90.0 L384.2,91.2 L387.0,92.3 L389.9,93.5 L392.8,94.7 L395.6,95.8 L398.5,96.9 L401.3,98.0 L404.2,99.1 L407.1,100.2 L409.9,101.3 L412.8,102.3 L415.6,103.4 L418.5,104.4 L421.4,105.4 L424.2,106.4 L427.1,107.4 L429.9,108.3 L432.8,109.3 L435.7,110.2 L438.5,111.2 L441.4,112.1 L444.2,113.0 L447.1,113.9 L450.0,114.7 L452.8,115.6 L455.7,116.4 L458.5,117.3 L461.4,118.1 L464.3,118.9 L467.1,119.7 L470.0,120.5 L472.8,121.3 L475.7,122.0 L478.6,122.8 L481.4,123.5 L484.3,124.3 L487.1,125.0 L490.0,125.7"/>
+            <path class="curve2" d="M61.0,211.5 L63.9,209.3 L66.7,207.2 L69.6,205.0 L72.4,202.8 L75.3,200.7 L78.2,198.6 L81.0,196.5 L83.9,194.4 L86.7,192.4 L89.6,190.4 L92.5,188.4 L95.3,186.4 L98.2,184.5 L101.0,182.6 L103.9,180.7 L106.8,178.9 L109.6,177.1 L112.5,175.3 L115.3,173.6 L118.2,171.9 L121.1,170.3 L123.9,168.7 L126.8,167.1 L129.6,165.6 L132.5,164.1 L135.4,162.7 L138.2,161.3 L141.1,159.9 L143.9,158.6 L146.8,157.3 L149.7,156.1 L152.5,154.9 L155.4,153.8 L158.2,152.7 L161.1,151.6 L164.0,150.6 L166.8,149.6 L169.7,148.6 L172.5,147.7 L175.4,146.9 L178.3,146.0 L181.1,145.2 L184.0,144.5 L186.8,143.8 L189.7,143.1 L192.6,142.4 L195.4,141.8 L198.3,141.2 L201.1,140.7 L204.0,140.1 L206.9,139.6 L209.7,139.2 L212.6,138.7 L215.4,138.3 L218.3,138.0 L221.2,137.6 L224.0,137.3 L226.9,137.0 L229.7,136.7 L232.6,136.5 L235.5,136.2 L238.3,136.0 L241.2,135.8 L244.0,135.7 L246.9,135.5 L249.8,135.4 L252.6,135.3 L255.5,135.2 L258.3,135.1 L261.2,135.1 L264.1,135.0 L266.9,135.0 L269.8,135.0 L272.6,135.0 L275.5,135.0 L278.4,135.1 L281.2,135.1 L284.1,135.2 L286.9,135.2 L289.8,135.3 L292.7,135.4 L295.5,135.5 L298.4,135.6 L301.2,135.7 L304.1,135.9 L307.0,136.0 L309.8,136.2 L312.7,136.3 L315.5,136.5 L318.4,136.7 L321.3,136.8 L324.1,137.0 L327.0,137.2 L329.8,137.4 L332.7,137.6 L335.6,137.8 L338.4,138.0 L341.3,138.2 L344.1,138.5 L347.0,138.7 L349.9,138.9 L352.7,139.2 L355.6,139.4 L358.4,139.6 L361.3,139.9 L364.2,140.1 L367.0,140.4 L369.9,140.6 L372.7,140.9 L375.6,141.1 L378.5,141.4 L381.3,141.7 L384.2,141.9 L387.0,142.2 L389.9,142.5 L392.8,142.7 L395.6,143.0 L398.5,143.3 L401.3,143.5 L404.2,143.8 L407.1,144.1 L409.9,144.4 L412.8,144.6 L415.6,144.9 L418.5,145.2 L421.4,145.5 L424.2,145.7 L427.1,146.0 L429.9,146.3 L432.8,146.6 L435.7,146.8 L438.5,147.1 L441.4,147.4 L444.2,147.7 L447.1,147.9 L450.0,148.2 L452.8,148.5 L455.7,148.8 L458.5,149.0 L461.4,149.3 L464.3,149.6 L467.1,149.9 L470.0,150.1 L472.8,150.4 L475.7,150.7 L478.6,150.9 L481.4,151.2 L484.3,151.5 L487.1,151.7 L490.0,152.0"/>
+            <path class="axis" d="M50,235 V25 M40,220 H505"/>
+            <path class="axis" d="M45,32 L50,22 L55,32 M495,215 L505,220 L495,225"/>
+            <text x="262" y="240" font-size="13">N₀</text>
+            <text x="490" y="242" font-size="13">N</text>
+            <text x="58" y="30" font-size="13">I</text>
+            <text x="308" y="54" font-size="12" style="fill:var(--accent)">R<tspan dy="3" font-size="9">t</tspan><tspan dy="-3"> faible : résonance aiguë</tspan></text>
+            <text x="322" y="118" font-size="12" style="fill:var(--orange)">R<tspan dy="3" font-size="9">t</tspan><tspan dy="-3"> grande : résonance floue</tspan></text>
+          </svg>
+          <figcaption>Plus la résistance totale est faible, plus la résonance est aiguë (et plus \(I_{max}\) est grand).</figcaption>
+        </figure>
+        <ul>
+          <li>\(L\omega_0 = \dfrac{1}{C\omega_0}\) ⟹ \(Z = Z_{min} = R_t\) et \(I = I_{max} = \dfrac{U}{R_t}\) ; \(\Delta\varphi = 0\).</li>
+        </ul>
+        <div class="formula-grid">
+          <div class="formula"><span class="label">Facteur de qualité</span>$$Q = \frac{U_C}{U} = \frac{L\omega_0}{R_t} = \frac{1}{R_t C\omega_0}$$</div>
+          <div class="formula"><span class="label">Puissance moyenne</span>$$P = U\,I\cos\Delta\varphi = R_t\,I^2$$</div>
+        </div>
+        <div class="callout warn">
+          <strong>Surtension</strong>
+          Si \(Q > 1\), la tension efficace aux bornes du condensateur (ou de la bobine) dépasse celle du générateur : risque de <strong>claquage</strong> du condensateur.
+        </div>
+      </section>
+
+      <!-- ===================== 5. Filtres ===================== -->
+      <section class="chapter" id="filtres">
+        <h2>Les filtres électriques</h2>
+        <p class="intro">Un filtre est un quadripôle qui transmet certaines fréquences et en atténue d'autres.</p>
+        <div class="formula-grid">
+          <div class="formula"><span class="label">Transmittance</span>$$T = \frac{U_{sm}}{U_{em}} = \frac{U_s}{U_e}$$</div>
+          <div class="formula"><span class="label">Gain (dB)</span>$$G = 20\log T$$</div>
+          <div class="formula"><span class="label">Bande passante à −3 dB</span>$$T \ge \frac{T_0}{\sqrt2} \iff G \ge G_0 - 3\ \text{dB}$$</div>
+        </div>
+
+        <figure class="fig">
+          <svg viewBox="0 0 520 260" role="img" aria-label="Transmittance des filtres passe-bas et passe-haut">
+            <line class="grid" x1="50" y1="60" x2="500" y2="60"/>
+            <line class="dash" x1="50" y1="106.9" x2="500" y2="106.9"/>
+            <line class="dash" x1="135" y1="220" x2="135" y2="60"/>
+            <path class="curve" d="M50.0,60.0 L53.7,60.2 L57.4,60.6 L61.0,61.3 L64.7,62.4 L68.4,63.6 L72.1,65.1 L75.8,66.9 L79.5,68.8 L83.2,70.9 L86.8,73.2 L90.5,75.6 L94.2,78.0 L97.9,80.6 L101.6,83.2 L105.2,85.8 L108.9,88.5 L112.6,91.2 L116.3,93.8 L120.0,96.5 L123.7,99.1 L127.4,101.7 L131.0,104.2 L134.7,106.7 L138.4,109.1 L142.1,111.5 L145.8,113.8 L149.5,116.0 L153.1,118.2 L156.8,120.4 L160.5,122.4 L164.2,124.5 L167.9,126.4 L171.6,128.3 L175.2,130.1 L178.9,131.9 L182.6,133.7 L186.3,135.3 L190.0,136.9 L193.7,138.5 L197.3,140.0 L201.0,141.5 L204.7,143.0 L208.4,144.3 L212.1,145.7 L215.8,147.0 L219.4,148.3 L223.1,149.5 L226.8,150.7 L230.5,151.8 L234.2,153.0 L237.8,154.0 L241.5,155.1 L245.2,156.1 L248.9,157.1 L252.6,158.1 L256.3,159.0 L260.0,160.0 L263.6,160.8 L267.3,161.7 L271.0,162.6 L274.7,163.4 L278.4,164.2 L282.1,165.0 L285.7,165.7 L289.4,166.5 L293.1,167.2 L296.8,167.9 L300.5,168.6 L304.1,169.3 L307.8,169.9 L311.5,170.5 L315.2,171.2 L318.9,171.8 L322.6,172.4 L326.2,172.9 L329.9,173.5 L333.6,174.1 L337.3,174.6 L341.0,175.1 L344.7,175.7 L348.3,176.2 L352.0,176.7 L355.7,177.1 L359.4,177.6 L363.1,178.1 L366.8,178.5 L370.5,179.0 L374.1,179.4 L377.8,179.8 L381.5,180.3 L385.2,180.7 L388.9,181.1 L392.6,181.5 L396.2,181.9 L399.9,182.2 L403.6,182.6 L407.3,183.0 L411.0,183.3 L414.7,183.7 L418.3,184.0 L422.0,184.4 L425.7,184.7 L429.4,185.0 L433.1,185.3 L436.8,185.7 L440.4,186.0 L444.1,186.3 L447.8,186.6 L451.5,186.9 L455.2,187.1 L458.9,187.4 L462.5,187.7 L466.2,188.0 L469.9,188.3 L473.6,188.5 L477.3,188.8 L480.9,189.0 L484.6,189.3 L488.3,189.5 L492.0,189.8"/>
+            <path class="curve2" d="M50.0,220.0 L53.7,213.1 L57.4,206.2 L61.0,199.4 L64.7,192.7 L68.4,186.1 L72.1,179.7 L75.8,173.6 L79.5,167.6 L83.2,161.9 L86.8,156.4 L90.5,151.2 L94.2,146.2 L97.9,141.5 L101.6,137.0 L105.2,132.8 L108.9,128.8 L112.6,125.1 L116.3,121.6 L120.0,118.3 L123.7,115.2 L127.4,112.3 L131.0,109.6 L134.7,107.1 L138.4,104.7 L142.1,102.4 L145.8,100.3 L149.5,98.4 L153.1,96.5 L156.8,94.8 L160.5,93.2 L164.2,91.7 L167.9,90.2 L171.6,88.9 L175.2,87.6 L178.9,86.4 L182.6,85.3 L186.3,84.2 L190.0,83.2 L193.7,82.3 L197.3,81.4 L201.0,80.6 L204.7,79.8 L208.4,79.0 L212.1,78.3 L215.8,77.6 L219.4,77.0 L223.1,76.4 L226.8,75.8 L230.5,75.2 L234.2,74.7 L237.8,74.2 L241.5,73.8 L245.2,73.3 L248.9,72.9 L252.6,72.5 L256.3,72.1 L260.0,71.7 L263.6,71.3 L267.3,71.0 L271.0,70.7 L274.7,70.4 L278.4,70.1 L282.1,69.8 L285.7,69.5 L289.4,69.2 L293.1,69.0 L296.8,68.7 L300.5,68.5 L304.1,68.3 L307.8,68.0 L311.5,67.8 L315.2,67.6 L318.9,67.4 L322.6,67.3 L326.2,67.1 L329.9,66.9 L333.6,66.7 L337.3,66.6 L341.0,66.4 L344.7,66.3 L348.3,66.1 L352.0,66.0 L355.7,65.8 L359.4,65.7 L363.1,65.6 L366.8,65.5 L370.5,65.3 L374.1,65.2 L377.8,65.1 L381.5,65.0 L385.2,64.9 L388.9,64.8 L392.6,64.7 L396.2,64.6 L399.9,64.5 L403.6,64.4 L407.3,64.3 L411.0,64.3 L414.7,64.2 L418.3,64.1 L422.0,64.0 L425.7,63.9 L429.4,63.9 L433.1,63.8 L436.8,63.7 L440.4,63.7 L444.1,63.6 L447.8,63.5 L451.5,63.5 L455.2,63.4 L458.9,63.3 L462.5,63.3 L466.2,63.2 L469.9,63.2 L473.6,63.1 L477.3,63.1 L480.9,63.0 L484.6,63.0 L488.3,62.9 L492.0,62.9"/>
+            <path class="axis" d="M50,235 V25 M40,220 H505"/>
+            <path class="axis" d="M45,32 L50,22 L55,32 M495,215 L505,220 L495,225"/>
+            <text x="22" y="64" font-size="13">T₀</text>
+            <text x="2" y="111" font-size="12">T₀/√2</text>
+            <text x="127" y="240" font-size="13">N<tspan dy="3" font-size="9">c</tspan></text>
+            <text x="490" y="242" font-size="13">N</text>
+            <text x="58" y="30" font-size="13">T</text>
+            <text x="300" y="188" font-size="13" style="fill:var(--accent)">passe-bas</text>
+            <text x="300" y="52" font-size="13" style="fill:var(--orange)">passe-haut</text>
+          </svg>
+          <figcaption>Au-delà de la fréquence de coupure \(N_c\), le passe-bas atténue le signal tandis que le passe-haut le transmet.</figcaption>
+        </figure>
+
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>Type de filtre</th><th>Caractéristiques essentielles</th></tr></thead>
+            <tbody>
+              <tr><td>Passe-bas (RC, sortie sur C)</td><td>\(T = \dfrac{1}{\sqrt{1 + (N/N_c)^2}}\), \(N_c = \dfrac{1}{2\pi RC}\). Transmet les basses fréquences (\(N \le N_c\)).</td></tr>
+              <tr><td>Passe-haut (RC, sortie sur R)</td><td>\(T = \dfrac{N/N_c}{\sqrt{1 + (N/N_c)^2}}\), même \(N_c\). Transmet les hautes fréquences (\(N \ge N_c\)).</td></tr>
+              <tr><td>Passe-bande (RLC, sortie sur R)</td><td>\(T_0 = \dfrac{R}{R + r}\) à \(N = N_0\). Largeur : \(\Delta N = N_2 - N_1 = \dfrac{R_t}{2\pi L} = \dfrac{N_0}{Q}\).</td></tr>
+              <tr><td>Filtre actif (avec A.O.)</td><td>Peut avoir \(T_0 > 1\) : il <strong>amplifie</strong> le signal (\(G_0 > 0\) dB).</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout tip">
+          <strong>Retenir</strong>
+          Filtre passif ⟹ \(T \le 1\) et \(G \le 0\) dB. Un gain positif implique forcément un filtre <strong>actif</strong>.
+        </div>
+      </section>
+
+      <!-- ===================== 6. Ondes ===================== -->
+      <section class="chapter" id="ondes">
+        <h2>Les ondes mécaniques progressives</h2>
+        <p class="intro">Une onde mécanique est la propagation d'une perturbation dans un milieu matériel, <strong>sans transport de matière</strong> mais avec transport d'énergie.</p>
+
+        <div class="formula-grid">
+          <div class="formula"><span class="label">Célérité</span>$$v = \frac{d}{\Delta t} = \lambda\,N = \frac{\lambda}{T}$$</div>
+          <div class="formula"><span class="label">Corde tendue</span>$$v = \sqrt{\frac{F}{\mu}},\quad \mu = \frac{m}{L}$$</div>
+        </div>
+
+        <h3>Équation horaire d'un point M</h3>
+        <p>La source vibre selon \(y_S(t) = a\sin(\omega t + \varphi_S)\). Le point M d'abscisse \(x\) reproduit le mouvement de S avec un <strong>retard</strong> \(\theta = \dfrac{x}{v}\) :</p>
+        <ul>
+          <li>Pour \(t < \theta\) : \(y_M(t) = 0\) (l'onde n'est pas encore arrivée).</li>
+          <li>Pour \(t \ge \theta\) :</li>
+        </ul>
+        <div class="formula">$$y_M(t) = a\sin\big(\omega(t - \theta) + \varphi_S\big) = a\sin\!\left(\frac{2\pi t}{T} - \frac{2\pi x}{\lambda} + \varphi_S\right)$$</div>
+
+        <h3>Aspect de la corde à un instant \(t_1\)</h3>
+        <figure class="fig">
+          <svg viewBox="0 0 520 220" role="img" aria-label="Aspect d'une corde à un instant donné">
+            <path class="curve" d="M50.0,110.0 L52.1,115.2 L54.2,120.3 L56.3,125.3 L58.4,130.2 L60.5,135.0 L62.6,139.5 L64.7,143.7 L66.8,147.7 L68.9,151.3 L71.0,154.5 L73.1,157.3 L75.2,159.8 L77.3,161.7 L79.4,163.3 L81.5,164.3 L83.6,164.9 L85.7,165.0 L87.8,164.6 L89.9,163.7 L92.0,162.3 L94.1,160.5 L96.2,158.2 L98.3,155.5 L100.4,152.4 L102.5,148.9 L104.6,145.1 L106.7,140.9 L108.8,136.5 L110.9,131.8 L113.0,127.0 L115.1,122.0 L117.2,116.9 L119.3,111.7 L121.4,106.5 L123.5,101.4 L125.6,96.3 L127.7,91.4 L129.8,86.6 L131.9,82.0 L134.0,77.7 L136.1,73.6 L138.2,69.9 L140.3,66.5 L142.4,63.6 L144.5,61.0 L146.6,58.9 L148.7,57.2 L150.8,56.0 L152.9,55.2 L155.0,55.0 L157.1,55.2 L159.2,56.0 L161.3,57.2 L163.4,58.9 L165.5,61.0 L167.6,63.6 L169.7,66.5 L171.8,69.9 L173.9,73.6 L176.0,77.7 L178.1,82.0 L180.2,86.6 L182.3,91.4 L184.4,96.3 L186.5,101.4 L188.6,106.5 L190.7,111.7 L192.8,116.9 L194.9,122.0 L197.0,127.0 L199.1,131.8 L201.2,136.5 L203.3,140.9 L205.4,145.1 L207.5,148.9 L209.6,152.4 L211.7,155.5 L213.8,158.2 L215.9,160.5 L218.0,162.3 L220.1,163.7 L222.2,164.6 L224.3,165.0 L226.4,164.9 L228.5,164.3 L230.6,163.3 L232.7,161.7 L234.8,159.8 L236.9,157.3 L239.0,154.5 L241.1,151.3 L243.2,147.7 L245.3,143.7 L247.4,139.5 L249.5,135.0 L251.6,130.2 L253.7,125.3 L255.8,120.3 L257.9,115.2 L260.0,110.0 L262.1,104.8 L264.2,99.7 L266.3,94.7 L268.4,89.8 L270.5,85.0 L272.6,80.5 L274.7,76.3 L276.8,72.3 L278.9,68.7 L281.0,65.5 L283.1,62.7 L285.2,60.2 L287.3,58.3 L289.4,56.7 L291.5,55.7 L293.6,55.1 L295.7,55.0 L297.8,55.4 L299.9,56.3 L302.0,57.7 L304.1,59.5 L306.2,61.8 L308.3,64.5 L310.4,67.6 L312.5,71.1 L314.6,74.9 L316.7,79.1 L318.8,83.5 L320.9,88.2 L323.0,93.0 L325.1,98.0 L327.2,103.1 L329.3,108.3 L331.4,113.5 L333.5,118.6 L335.6,123.7 L337.7,128.6 L339.8,133.4 L341.9,138.0 L344.0,142.3 L346.1,146.4 L348.2,150.1 L350.3,153.5 L352.4,156.4 L354.5,159.0 L356.6,161.1 L358.7,162.8 L360.8,164.0 L362.9,164.8 L365.0,165.0 L367.1,164.8 L369.2,164.0 L371.3,162.8 L373.4,161.1 L375.5,159.0 L377.6,156.4 L379.7,153.5 L381.8,150.1 L383.9,146.4 L386.0,142.3 L388.1,138.0 L390.2,133.4 L392.3,128.6 L394.4,123.7 L396.5,118.6 L398.6,113.5 L400.7,108.3 L402.8,103.1 L404.9,98.0 L407.0,93.0 L409.1,88.2 L411.2,83.5 L413.3,79.1 L415.4,74.9 L417.5,71.1 L419.6,67.6 L421.7,64.5 L423.8,61.8 L425.9,59.5 L428.0,57.7 L430.1,56.3 L432.2,55.4 L434.3,55.0 L436.4,55.1 L438.5,55.7 L440.6,56.7 L442.7,58.3 L444.8,60.2 L446.9,62.7 L449.0,65.5 L451.1,68.7 L453.2,72.3 L455.3,76.3 L457.4,80.5 L459.5,85.0 L461.6,89.8 L463.7,94.7 L465.8,99.7 L467.9,104.8 L470.0,110.0"/>
+            <line x1="470" y1="110" x2="505" y2="110" stroke="var(--muted)" stroke-width="2"/>
+            <path class="axis" d="M50,200 V20 M40,110 H505"/>
+            <path class="dash" d="M470,30 V190"/>
+            <path d="M120,190 H260" stroke="var(--orange)" stroke-width="2" marker-end="url(#b)" marker-start="url(#b)"/>
+            <defs><marker id="b" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10z" fill="var(--orange)"/></marker></defs>
+            <text x="185" y="208" font-size="14" style="fill:var(--orange)">λ</text>
+            <text x="505" y="24" text-anchor="end" font-size="12">front d'onde x<tspan dy="3" font-size="9">f</tspan><tspan dy="-3"> = v·t₁</tspan></text>
+            <text x="58" y="26" font-size="13">y</text>
+            <text x="490" y="130" font-size="13">x</text>
+            <text x="30" y="114" font-size="13">S</text>
+          </svg>
+          <figcaption>On remplace \(t\) par \(t_1\) dans \(y_M\) pour \(0 \le x \le x_f\) ; au-delà du front d'onde, la corde est au repos.</figcaption>
+        </figure>
+
+        <h3>Comparaison de l'état vibratoire avec la source</h3>
+        <div class="compare">
+          <div><h4>✅ En phase</h4><p>\(x = k\,\lambda\) &nbsp; (\(k \in \mathbb{N}^*\))</p><p>Le point vibre exactement comme la source.</p></div>
+          <div><h4>🔄 En opposition de phase</h4><p>\(x = (2k + 1)\,\dfrac{\lambda}{2}\) &nbsp; (\(k \in \mathbb{N}\))</p><p>Le point a toujours une élongation opposée à celle de la source.</p></div>
+        </div>
+        <div class="callout bac">
+          <strong>Astuce Bac</strong>
+          Double périodicité : <strong>temporelle</strong> (période \(T\), lue sur \(y_M(t)\)) et <strong>spatiale</strong> (longueur d'onde \(\lambda\), lue sur l'aspect de la corde). Ne les confonds jamais en lisant un graphe : regarde toujours l'unité de l'axe horizontal !
+        </div>
+      </section>
+      <nav class="pager" aria-label="Navigation"></nav>
+    </main>
+  </div>
+
+  <button class="toc-fab" type="button" aria-label="Sommaire">☰</button>
+  <button class="icon-btn to-top" type="button" aria-label="Haut">↑</button>
+
+  <footer class="footer">
+    <div class="container">
+      <a href="../../index.html#info">← Retour à ma section</a>
+      <div class="footer-meta"><a class="footer-contact" href="mailto:yassinemami41@gmail.com">📧 yassinemami41@gmail.com</a><span class="copyright">© Joyboy</span></div>
+    </div>
+  </footer>
+
+  <script src="../../assets/vendor/katex/katex.min.js"></script>
+  <script src="../../assets/vendor/katex/auto-render.min.js"></script>
+  <script src="../../assets/vendor/prism/prism.min.js"></script>
+  <script src="../../assets/js/catalog.js"></script>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

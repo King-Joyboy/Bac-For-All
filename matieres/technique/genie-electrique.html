@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Génie Électrique — Bac Sciences Techniques</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem("bac-theme"))||"light"}catch(e){}</script>
+</head>
+<body data-root="../../" data-section="technique" data-subject="technique-genie-electrique" style="--accent:#ea580c">
+
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="../../index.html#technique">
+        <span class="brand-badge">🎓</span>
+        <span>Bac Pour Tous<span class="brand-sub">Bac Sciences Techniques</span></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-pill" href="../../index.html#technique">Accueil</a>
+        <div class="dropdown">
+          <button class="nav-btn nav-pill" type="button" data-dropdown-toggle>📚 Matières ▾</button>
+          <div class="dropdown-menu" data-subjects-menu></div>
+        </div>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Theme">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <div class="progress-bar"></div>
+
+  <section class="subject-hero">
+    <div class="container">
+      <nav class="crumbs"><a href="../../index.html">Accueil</a> › <a href="../../index.html#technique">Bac Sciences Techniques</a> › <span>Génie Électrique</span></nav>
+      <span class="chip">⚙️ Bac Sciences Techniques</span>
+      <h1><span>🔌</span> Génie Électrique</h1>
+      <p class="subtitle">4ème Sciences Techniques (Tunisie) • Logique, GRAFCET, PIC, Triphasé, MAS &amp; Électronique</p>
+      <div class="meta-row">
+        <span class="chip neutral" data-chapcount></span>
+        <span class="chip neutral" data-readtime></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container layout">
+    <aside class="toc" aria-label="Sommaire"></aside>
+    <main class="content">
+      <section class="chapter" id="logique-combinatoire-sequentiell">
+        <h2>Logique Combinatoire &amp; Séquentielle</h2>
+        <ul>
+          <li><strong>Algèbre de Boole &amp; De Morgan :</strong> <code>!(A · B) = !A + !B</code> et <code>!(A + B) = !A · !B</code> . Simplification par <strong>tableau de Karnaugh</strong> (regroupements de 2n cases adjacentes : 1, 2, 4, 8...).</li>
+          <li><strong>Circuits combinatoires :</strong> Multiplexeur (sélectionne 1 entrée parmi 2n), Décodeur (ex : BCD → 7 segments), Comparateur, Additionneur.</li>
+          <li><strong>Bascules (Logique séquentielle) :</strong></li>
+          <li style="margin-inline-start:1.2rem;list-style-type:circle"><strong>Bascule D :</strong> Recopie D sur front actif d&#x27;horloge (Q+ = D).</li>
+          <li style="margin-inline-start:1.2rem;list-style-type:circle"><strong>Bascule JK :</strong> J=0, K=0 (mémoire) ; J=0, K=1 (RAZ : 0) ; J=1, K=0 (Mise à 1) ; J=1, K=1 (basculement / toggle : Q+ = !Q).</li>
+          <li><strong>Compteurs :</strong> Modulo N (compte de 0 à N−1). Nombre de bascules nécessaires : <code>2n−1 &lt; N ≤ 2n</code> . Fréquence de sortie : <code>fs = fH / N</code> .</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="grafcet-norme-iec-60848">
+        <h2>GRAFCET (Norme IEC 60848)</h2>
+        <ul>
+          <li><strong>3 niveaux :</strong> Point de vue Système (cahier des charges), Point de vue Partie Opérative (actionneurs/capteurs), Point de vue Partie Commande (pré-actionneurs KM1, Distributeurs 14M1, entrées API/PIC).</li>
+          <li><strong>Règles d&#x27;évolution :</strong> Une transition est franchie si toutes les étapes immédiatement précédentes sont actives <strong>ET</strong> la réceptivité associée est vraie. Le franchissement désactive les étapes précédentes et active les suivantes simultanément.</li>
+          <li><strong>Structures :</strong> Séquence unique, Divergence/Convergence en <strong>OU</strong> (aiguillage, choix exclusif), Divergence/Convergence en <strong>ET</strong> (séquences simultanées, double barre).</li>
+          <li><strong>Équations d&#x27;activation/désactivation d&#x27;une étape Xi :</strong> <code>Xi = (CAi + Xi) · !CDi</code> (mise en équation pour câblage ou programmation).</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="microcontroleur-pic-16f84a-16f87">
+        <h2>Microcontrôleur PIC (16F84A / 16F877)</h2>
+        <ul>
+          <li><strong>Configuration des ports :</strong> Registre <code>TRISA</code> / <code>TRISB</code> ( <code>1</code> = Entrée, <code>0</code> = Sortie). Lecture/Écriture via <code>PORTA</code> / <code>PORTB</code> .</li>
+          <li><strong>Conversion Analogique-Numérique (CAN 10 bits sur PIC16F877) :</strong></li>
+        </ul>
+        <div class="formula-box"><strong>Quantum (pas de quantification) :</strong> q = Vref / (2n − 1) (pour n = 10 bits, 210−1 = 1023)<br><strong>Valeur numérique :</strong> N = Vin / q</div>
+        <ul>
+          <li><strong>Programmation MikroC :</strong> <code>TRISB = 0x00;</code> (PORTB en sortie), <code>PORTB.F0 = 1;</code> , <code>Delay_ms(500);</code> , <code>ADC_Read(0);</code> .</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="courant-alternatif-monophase-tri">
+        <h2>Courant Alternatif Monophasé &amp; Triphasé</h2>
+        <ul>
+          <li><strong>Monophasé :</strong> <code>P = U · I · cos(ϕ)</code> (W), <code>Q = U · I · sin(ϕ)</code> (var), <code>S = U · I = √(P² + Q²)</code> (VA), <code>cos(ϕ) = P / S</code> .</li>
+          <li><strong>Réseau triphasé équilibré :</strong> Tension simple <code>V</code> (phase-neutre), tension composée <code>U = V · √3</code> (entre phases).</li>
+        </ul>
+        <div class="table-wrap"><table class="tbl"><thead><tr><th>Couplage</th><th>Tension par enroulement</th><th>Courant en ligne I</th><th>Choix sur plaque signalétique (ex: 230V/400V)</th></tr></thead><tbody>
+              <tr><td>Étoile (Y)</td><td>V = U / √3</td><td>I = J</td><td>Si Uréseau = plus grande tension (400V)</td></tr>
+              <tr><td>Triangle (Δ)</td><td>U</td><td>I = J · √3</td><td>Si Uréseau = plus petite tension (230V)</td></tr>
+            </tbody></table></div>
+        <ul>
+          <li><strong>Puissances en triphasé (Y ou Δ) :</strong> <code>P = √3 · U · I · cos(ϕ)</code> ; <code>Q = √3 · U · I · sin(ϕ)</code> ; <code>S = √3</code> <code>· U · I</code> .</li>
+          <li><strong>Théorème de Boucherot :</strong> <code>Ptot = Σ Pi</code> et <code>Qtot = Σ Qi</code> (jamais additionner les S directement !).</li>
+          <li><strong>Relèvement du facteur de puissance :</strong> Pour passer de <code>cos(ϕ)</code> à <code>cos(ϕ&#x27;)</code> :</li>
+        </ul>
+        <div class="formula-box"><strong>Capacité par phase (en Δ) :</strong> CΔ = P · (tan ϕ − tan ϕ&#x27;) / (3 · ω · U²) | <strong>En étoile :</strong> CY = 3 · CΔ</div>
+      </section>
+
+      <section class="chapter" id="moteur-asynchrone-triphase-mas">
+        <h2>Moteur Asynchrone Triphasé (MAS)</h2>
+        <div class="formula-box"><strong>Vitesse de synchronisme :</strong> ns = 60 · f / p (tr/min, p = nb de paires de pôles)<br><strong>Glissement :</strong> g = (ns − n) / ns | <strong>Couple utile :</strong> Tu = Pu / ω = Pu / (2πn/60)</div>
+        <ul>
+          <li><strong>Bilan des puissances :</strong> <code>Pa = √3 U I cos(ϕ)</code> → pertes Joule stator ( <code>Pjs = 3/2 R I²</code> ) &amp; pertes fer stator ( <code>Pfs</code> ) → <strong>Puissance transmise au rotor</strong> <code>Ptr = Pa − Pjs − Pfs</code> → pertes Joule rotor <code>Pjr = g ·</code> <code>Ptr</code> → pertes mécaniques <code>Pm</code> → <strong>Puissance utile</strong> <code>Pu = Ptr − Pjr − Pm</code> .</li>
+          <li><strong>Rendement :</strong> <code>η = Pu / Pa</code> . <strong>Couple électromagnétique :</strong> <code>Tem = Ptr / ωs</code> .</li>
+          <li><strong>Inversion du sens de rotation :</strong> Permuter deux phases d&#x27;alimentation.</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="electronique-de-puissance-analog">
+        <h2>Électronique de Puissance &amp; Analogique</h2>
+        <ul>
+          <li><strong>Redressement commandé / non commandé (Pont de Graetz PD2) :</strong> Tension moyenne <code>Umoy = 2</code> <code>Umax / π</code> (double alternance).</li>
+          <li><strong>Hacheur série (commande moteur CC) :</strong> <code>Umoy = α · E</code> avec <code>α = ton / T</code> (rapport cyclique, <code>0 ≤ α</code> <code>≤ 1</code> ). Vitesse du MCC proportionnelle à <code>Umoy</code> .</li>
+          <li><strong>Amplificateur Opérationnel (AO idéal) :</strong></li>
+          <li style="margin-inline-start:1.2rem;list-style-type:circle"><strong>Régime linéaire</strong> (contre-réaction sur l&#x27;entrée −) : <code>ε = V+ − V− = 0</code> , <code>i+ = i− = 0</code> . Suiveur : <code>Vs = Ve</code> . Inverseur : <code>Vs = −(R2/R1) Ve</code> . Non-inverseur : <code>Vs = (1 + R2/R1) Ve</code> .</li>
+          <li style="margin-inline-start:1.2rem;list-style-type:circle"><strong>Régime saturé (comparateur) :</strong> Si <code>V+ &gt; V− ⇒ Vs = +Vsat</code> ; si <code>V+ &lt; V− ⇒ Vs = −Vsat</code> .</li>
+        </ul>
+      </section>
+      <nav class="pager" aria-label="Navigation"></nav>
+    </main>
+  </div>
+
+  <button class="toc-fab" type="button" aria-label="Sommaire">☰</button>
+  <button class="icon-btn to-top" type="button" aria-label="Haut">↑</button>
+
+  <footer class="footer">
+    <div class="container">
+      <a href="../../index.html#technique">← Retour à ma section</a>
+      <div class="footer-meta"><a class="footer-contact" href="mailto:yassinemami41@gmail.com">📧 yassinemami41@gmail.com</a><span class="copyright">© Joyboy</span></div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/catalog.js"></script>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

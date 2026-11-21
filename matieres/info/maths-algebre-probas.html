@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maths — Algèbre &amp; Probas — Bac Informatique</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem("bac-theme"))||"light"}catch(e){}</script>
+</head>
+<body data-root="../../" data-section="info" data-subject="info-algebre" style="--accent:#16a34a">
+
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="../../index.html#info">
+        <span class="brand-badge">🎓</span>
+        <span>Bac Pour Tous<span class="brand-sub">Bac Informatique</span></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-pill" href="../../index.html#info">Accueil</a>
+        <div class="dropdown">
+          <button class="nav-btn nav-pill" type="button" data-dropdown-toggle>📚 Matières ▾</button>
+          <div class="dropdown-menu" data-subjects-menu></div>
+        </div>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Theme">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <div class="progress-bar"></div>
+
+  <section class="subject-hero">
+    <div class="container">
+      <nav class="crumbs"><a href="../../index.html">Accueil</a> › <a href="../../index.html#info">Bac Informatique</a> › <span>Maths — Algèbre &amp; Probas</span></nav>
+      <span class="chip">💻 Bac Informatique</span>
+      <h1><span>🎲</span> Maths — Algèbre &amp; Probas</h1>
+      <p class="subtitle">Nombres complexes, arithmétique, matrices, systèmes linéaires, probabilités et statistiques doubles.</p>
+      <div class="meta-row">
+        <span class="chip neutral" data-chapcount></span>
+        <span class="chip neutral" data-readtime></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container layout">
+    <aside class="toc" aria-label="Sommaire"></aside>
+    <main class="content">
+<!-- 1. Complexes -->
+      <section class="chapter" id="complexes">
+        <h2>Nombres complexes</h2>
+        <p class="intro">Soit \(z = a + ib\) avec \(a, b \in \mathbb{R}\) et \(i^2 = -1\).</p>
+        <ul>
+          <li><strong>Conjugué</strong> : \(\bar{z} = a - ib\). Propriétés : \(z\cdot\bar{z} = a^2 + b^2 = |z|^2\) ; \(z \in \mathbb{R} \iff z = \bar{z}\) ; \(z \in i\mathbb{R} \iff z = -\bar{z}\).</li>
+          <li><strong>Module et argument</strong> : \(|z| = \sqrt{a^2 + b^2}\). Si \(z \neq 0\), \(\theta = \arg(z) \pmod{2\pi}\) vérifie \(\cos\theta = \dfrac{a}{|z|}\) et \(\sin\theta = \dfrac{b}{|z|}\).</li>
+        </ul>
+
+        <div class="formula-grid">
+          <div class="formula"><span class="label">Formes trigonométrique &amp; exponentielle</span>$$z = r(\cos\theta + i\sin\theta) = r e^{i\theta} \quad (r = |z| > 0)$$</div>
+          <div class="formula"><span class="label">Moivre et Euler</span>$$(e^{i\theta})^n = e^{in\theta} \;;\; \cos\theta = \frac{e^{i\theta}+e^{-i\theta}}{2} \;;\; \sin\theta = \frac{e^{i\theta}-e^{-i\theta}}{2i}$$</div>
+        </div>
+
+        <ul>
+          <li><strong>Équation du 2<sup>d</sup> degré dans \(\mathbb{C}\)</strong> : \(az^2 + bz + c = 0\) avec \(\Delta = b^2 - 4ac\). Si \(\delta^2 = \Delta\), les solutions sont \(z_1 = \dfrac{-b - \delta}{2a}\) et \(z_2 = \dfrac{-b + \delta}{2a}\).</li>
+        </ul>
+        <div class="formula-grid">
+          <div class="formula"><span class="label">Racines \(n\)-ièmes de \(r e^{i\theta}\)</span>$$z_k = \sqrt[n]{r}\,e^{i\frac{\theta + 2k\pi}{n}}, \quad k \in \{0, 1, \dots, n-1\}$$</div>
+          <div class="formula"><span class="label">Interprétation géométrique</span>$$AB = |z_B - z_A| \;;\; \big(\overrightarrow{AB}, \overrightarrow{AC}\big) \equiv \arg\!\left(\frac{z_C - z_A}{z_B - z_A}\right) \pmod{2\pi}$$</div>
+        </div>
+      </section>
+
+      <!-- 2. Arithmétique -->
+      <section class="chapter" id="arithmetique">
+        <h2>Arithmétique</h2>
+        <ul>
+          <li><strong>Division euclidienne</strong> : pour \(a \in \mathbb{Z}\) et \(b \in \mathbb{N}^*\), il existe un unique couple \((q, r)\) tel que \(a = bq + r\) avec \(0 \le r < b\).</li>
+          <li><strong>PGCD et PPCM</strong> : \(\operatorname{PGCD}(a,b) \cdot \operatorname{PPCM}(a,b) = |a \cdot b|\).<br><em>Algorithme d'Euclide</em> : si \(a = bq + r\), alors \(\operatorname{PGCD}(a,b) = \operatorname{PGCD}(b,r)\) (le dernier reste non nul est le PGCD).</li>
+          <li><strong>Théorème de Bézout</strong> : \(a\) et \(b\) sont premiers entre eux (\(\operatorname{PGCD}(a,b) = 1\)) \(\iff\) il existe \((u,v) \in \mathbb{Z}^2\) tel que \(au + bv = 1\).</li>
+          <li><strong>Théorème de Gauss</strong> : si \(a \mid bc\) et \(\operatorname{PGCD}(a,b) = 1\), alors \(a \mid c\).</li>
+          <li><strong>Congruences modulo \(n\)</strong> : \(a \equiv b \pmod n \iff n \mid (a-b)\). Compatible avec addition, soustraction, multiplication et puissances (\(a^k \equiv b^k \pmod n\)).</li>
+          <li><strong>Petit théorème de Fermat</strong> : si \(p\) est premier et \(p \nmid a\), alors \(a^{p-1} \equiv 1 \pmod p\) (et pour tout \(a \in \mathbb{Z}\), \(a^p \equiv a \pmod p\)).</li>
+        </ul>
+        <div class="callout info">
+          <strong>Équation diophantienne \(ax + by = c\)</strong>
+          Admet des solutions dans \(\mathbb{Z}^2 \iff d = \operatorname{PGCD}(a,b)\) divise \(c\). Après division par \(d\) et recherche d'une solution particulière \((x_0, y_0)\), on applique le théorème de Gauss sur \(a'(x - x_0) = -b'(y - y_0)\).
+        </div>
+      </section>
+
+      <!-- 3. Matrices -->
+      <section class="chapter" id="matrices">
+        <h2>Matrices et systèmes linéaires</h2>
+        <ul>
+          <li><strong>Produit matriciel</strong> : \(A \cdot B\) existe si le nombre de colonnes de \(A\) égale le nombre de lignes de \(B\). Attention : en général \(AB \neq BA\).</li>
+        </ul>
+        <div class="formula-grid">
+          <div class="formula"><span class="label">Matrice \(2 \times 2\) &amp; déterminant</span>$$A = \begin{pmatrix}a & b\\c & d\end{pmatrix} \implies \det(A) = ad - bc$$</div>
+          <div class="formula"><span class="label">Inverse (\(\det(A) \neq 0\))</span>$$A^{-1} = \frac{1}{ad - bc}\begin{pmatrix}d & -b\\-c & a\end{pmatrix}$$</div>
+        </div>
+        <ul>
+          <li><strong>Matrice \(3 \times 3\)</strong> : \(A\) est inversible \(\iff \det(A) \neq 0\). On trouve souvent \(A^{-1}\) via une relation donnée dans l'exercice (ex. : \(A^2 - 3A + 2I_3 = 0 \implies A^{-1} = \tfrac12(3I_3 - A)\)).</li>
+          <li><strong>Système linéaire \(AX = B\)</strong> : si \(A\) est inversible (\(\det(A) \neq 0\)), le système admet une unique solution :</li>
+        </ul>
+        <div class="formula">$$X = A^{-1} B$$</div>
+      </section>
+
+      <!-- 4. Probabilités -->
+      <section class="chapter" id="probabilites">
+        <h2>Probabilités</h2>
+        <div class="formula-grid">
+          <div class="formula"><span class="label">Formules de base</span>$$p(\bar{A}) = 1 - p(A) \;;\; p(A \cup B) = p(A) + p(B) - p(A \cap B)$$</div>
+          <div class="formula"><span class="label">Probabilité conditionnelle (\(p(B) \neq 0\))</span>$$p(A \mid B) = \frac{p(A \cap B)}{p(B)} \iff p(A \cap B) = p(B)\cdot p(A \mid B)$$</div>
+        </div>
+        <ul>
+          <li><strong>Indépendance</strong> : \(A\) et \(B\) sont indépendants \(\iff p(A \cap B) = p(A)\cdot p(B)\).</li>
+          <li><strong>Probabilités totales</strong> : si \(\{B_1, \dots, B_n\}\) est une partition de \(\Omega\), alors \(\displaystyle p(A) = \sum_{i=1}^n p(B_i)\cdot p(A \mid B_i)\).</li>
+        </ul>
+
+        <h3>Variable aléatoire discrète \(X\) &amp; loi binomiale</h3>
+        <div class="formula-grid">
+          <div class="formula"><span class="label">Espérance, variance, écart-type</span>$$E(X) = \sum_i x_i\,p(X=x_i) \;;\; V(X) = E(X^2) - [E(X)]^2 \;;\; \sigma(X) = \sqrt{V(X)}$$</div>
+          <div class="formula"><span class="label">Loi binomiale \(\mathcal{B}(n, p)\)</span>$$p(X=k) = \binom{n}{k} p^k (1-p)^{n-k} \;;\; E(X)=np \;;\; V(X)=np(1-p)$$</div>
+        </div>
+      </section>
+
+      <!-- 5. Statistiques -->
+      <section class="chapter" id="statistiques">
+        <h2>Statistiques (séries doubles)</h2>
+        <p class="intro">Soit une série statistique double \((x_i, y_i)\) d'effectif total \(N\).</p>
+        <div class="formula-grid">
+          <div class="formula"><span class="label">Point moyen \(G(\bar{x}, \bar{y})\)</span>$$\bar{x} = \frac{1}{N}\sum_{i=1}^N x_i \quad;\quad \bar{y} = \frac{1}{N}\sum_{i=1}^N y_i$$</div>
+          <div class="formula"><span class="label">Variance et écart-type</span>$$V(X) = \frac{1}{N}\sum_{i=1}^N x_i^2 - \bar{x}^2 \;;\; \sigma_X = \sqrt{V(X)}$$</div>
+          <div class="formula"><span class="label">Covariance</span>$$\operatorname{Cov}(X, Y) = \frac{1}{N}\sum_{i=1}^N x_i y_i - \bar{x}\bar{y}$$</div>
+          <div class="formula"><span class="label">Corrélation linéaire (\(-1 \le r \le 1\))</span>$$r = \frac{\operatorname{Cov}(X, Y)}{\sigma_X \cdot \sigma_Y}$$</div>
+        </div>
+        <p>Si \(|r|\) est proche de \(1\) (en général \(|r| \ge 0{,}87\)), un ajustement affine par la méthode des moindres carrés est justifié.</p>
+        <div class="formula"><span class="label">Droite de régression de \(y\) en \(x\) : \(D : y = ax + b\)</span>$$a = \frac{\operatorname{Cov}(X, Y)}{V(X)} \quad;\quad b = \bar{y} - a\bar{x}$$</div>
+        <div class="callout tip">
+          <strong>Remarque</strong>
+          La droite de régression passe toujours par le point moyen \(G(\bar{x}, \bar{y})\).
+        </div>
+      </section>
+      <nav class="pager" aria-label="Navigation"></nav>
+    </main>
+  </div>
+
+  <button class="toc-fab" type="button" aria-label="Sommaire">☰</button>
+  <button class="icon-btn to-top" type="button" aria-label="Haut">↑</button>
+
+  <footer class="footer">
+    <div class="container">
+      <a href="../../index.html#info">← Retour à ma section</a>
+      <div class="footer-meta"><a class="footer-contact" href="mailto:yassinemami41@gmail.com">📧 yassinemami41@gmail.com</a><span class="copyright">© Joyboy</span></div>
+    </div>
+  </footer>
+
+  <script src="../../assets/vendor/katex/katex.min.js"></script>
+  <script src="../../assets/vendor/katex/auto-render.min.js"></script>
+  <script src="../../assets/js/catalog.js"></script>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>
